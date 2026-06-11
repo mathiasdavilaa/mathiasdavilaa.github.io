@@ -1,0 +1,104 @@
+.headerStyle {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #222222;
+    width: 100%;
+    transition: background-color 0.4s ease;
+
+    > div {
+        background-color: #444444;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+        width: 100%;
+        transition: all 0.4s ease;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    &.rolou {
+        background-color: rgba(0, 0, 0, 0) !important;
+
+        > div {
+            width: 100%;
+            max-width: 75px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            justify-content: center;
+        }
+    }
+
+    &.rolou > div.expandido {
+        max-width: 500px;
+        justify-content: space-between;
+    }
+}
+
+.maxHelmet {
+    background-color: #55555500;
+    color: white;
+    border: none;
+    padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    opacity: 1;
+    visibility: visible;
+
+    #maxHelmet {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        pointer-events: none;
+    }
+}
+
+.headerLinks {
+    display: flex;
+    gap: 15px;
+    flex: 1;
+    opacity: 1;
+    visibility: visible;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        width 0.3s ease;
+    overflow: hidden;
+
+    a {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+}
+
+.leftLinks {
+    justify-content: flex-start;
+}
+
+.rightLinks {
+    justify-content: flex-end;
+}
+
+.rolou .headerLinks {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+}
+
+.rolou div.expandido .headerLinks {
+    opacity: 1;
+    visibility: visible;
+    width: auto;
+}
