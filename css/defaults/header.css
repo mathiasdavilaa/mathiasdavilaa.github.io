@@ -2,12 +2,12 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: #05192c;
+    background-color: #1A1D1D;
     width: 100%;
     transition: background-color 0.4s ease;
 
     > div {
-        background-color: #05192c;
+        background-color: #1A1D1D;
         height: 60px;
         display: flex;
         justify-content: space-between;
@@ -39,8 +39,8 @@
 }
 
 .maxHelmet {
-    background-color: #d4143800;
-    color: white;
+    background-color: #ffffff00;
+    color: #F5F6F6;
     border: none;
     padding: 6px;
     border-radius: 5px;
@@ -77,7 +77,7 @@
     overflow: hidden;
 
     a {
-        color: white;
+        color: #F5F6F6;
         text-decoration: none;
         font-size: 14px;
         white-space: nowrap;
