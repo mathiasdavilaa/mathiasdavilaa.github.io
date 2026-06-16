@@ -6,3 +6,462 @@
 body {
     background-color: #002420;
 }
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   ESTRUTURA DAS SEÇÕES (CONTAINERS PRINCIPAIS)
+   ========================================================================== */
+
+main .spaceHighlight {
+    background-color: #1A1D1D;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    /* Borda e sombra padrão iniciais */
+    border: 1px solid rgba(209, 242, 0, 0.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de iluminação focado estritamente no bloco da seção */
+main .spaceHighlight:hover {
+    border-color: rgba(209, 242, 0, 0.25) !important;
+    box-shadow: 0px 0px 20px rgba(209, 242, 0, 0.2), 0px 10px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* ==========================================================================
+   SEÇÃO: SOBRE MATHIAS
+   ========================================================================== */
+
+#aboutMathias {
+    max-width: 1400px;
+    min-height: 350px;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+}
+
+#mathiasPhoto {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+#mathiasPhoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.mathiasText {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #F5F6F6;
+    flex: 1;
+    max-width: 450px;
+    z-index: 2;
+}
+
+.text-left {
+    text-align: justify;
+}
+
+.text-right {
+    text-align: justify;
+}
+
+/* ==========================================================================
+   SEÇÃO: GAMES & MODAL
+   ========================================================================== */
+
+#aboutGames {
+    max-width: 1400px;
+    width: 100%;
+    padding: 40px;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.gamesIntroText {
+    color: #F5F6F6;
+    font-size: 16px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.gamesIntroText strong {
+    color: #D1F200;
+}
+
+.gamesIntroText .subHint {
+    margin-top: 10px;
+    font-style: italic;
+    color: #D1F200;
+    opacity: 0.8;
+}
+
+.gamesRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 25px;
+    width: 100%;
+}
+
+.gameCard {
+    flex: 1;
+    height: 260px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    border: 1px solid rgba(209, 242, 0, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.gameCard:hover {
+    transform: translateY(-4px) !important;
+    border-color: rgba(209, 242, 0, 0.3) !important;
+}
+
+.gameCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out;
+}
+
+.gameCard:hover img {
+    transform: scale(1.06);
+}
+
+.gameModal {
+    margin: auto;
+    border: none;
+    border-radius: 20px;
+    background-color: #1A1D1D;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.7);
+    max-width: 600px;
+    width: 90%;
+    padding: 30px;
+    color: #F5F6F6;
+    max-height: 70vh;
+}
+
+.gameModal::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 100%;
+}
+
+.modalContent h2 {
+    color: #D1F200;
+    font-size: 24px;
+    border-bottom: 2px solid #252929;
+    padding-bottom: 8px;
+}
+
+.modalBodyScroll {
+    overflow-y: auto;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: justify;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.modalBodyScroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modalBodyScroll::-webkit-scrollbar-thumb {
+    background-color: #252929;
+    border-radius: 10px;
+}
+
+.closeModalBtn {
+    align-self: flex-end;
+    background-color: #D1F200;
+    color: #1A1D1D;
+    border: none;
+    padding: 8px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: opacity 0.2s;
+}
+
+.closeModalBtn:hover {
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   SEÇÃO: POKÉMON
+   ========================================================================== */
+
+#aboutPokemon {
+    max-width: 1400px;
+    width: 100%;
+    padding: 40px;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.pokemonIntroText {
+    color: #F5F6F6;
+    font-size: 16px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pokemonIntroText .subHint {
+    font-style: italic;
+    color: #D1F200;
+    opacity: 0.8;
+}
+
+.pokemonGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    width: 100%;
+}
+
+.pokemonCardShowdown {
+    background-color: #252929;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(209, 242, 0, 0.1) !important;
+    transform: none !important;
+}
+
+.pokemonCardShowdown .pokeHeader {
+    background-color: #1A1D1D;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.pokemonCardShowdown .pokeHeader h3 {
+    color: #F5F6F6;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.pokemonCardShowdown .pokeBody {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+}
+
+.pokemonCardShowdown .pokeStatsList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.pokemonCardShowdown .pokeStatsList .statRow {
+    background-color: #F5F6F6;
+    color: #1A1D1D;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    box-shadow: inset 0px -2px 0px rgba(0,0,0,0.1);
+}
+
+.pokemonCardShowdown .pokeStatsList .statRow span {
+    font-weight: bold;
+    color: #555;
+}
+
+.pokemonCardShowdown .pokeStatsList .statRow strong {
+    color: #002420;
+    font-size: 15px;
+}
+
+.pokemonCardShowdown .pokeBigImg {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.pokemonCardShowdown .pokeBigImg img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.5));
+    transition: transform 0.3s ease;
+}
+
+.pokemonCardShowdown:hover .pokeBigImg img {
+    transform: scale(1.1) translateY(-5px);
+}
+
+/* ==========================================================================
+   SEÇÃO: CARROS
+   ========================================================================== */
+
+#aboutCars {
+    max-width: 1400px;
+    width: 100%;
+    padding: 40px;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.carsIntroText {
+    color: #F5F6F6;
+    font-size: 16px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.carsIntroText strong {
+    color: #D1F200;
+}
+
+.carsIntroText .subHint {
+    font-style: italic;
+    color: #D1F200;
+    opacity: 0.8;
+}
+
+.carsContainerColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.carRowWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.carRowCard {
+    background-color: #252929;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(209, 242, 0, 0.05) !important;
+    transform: none !important;
+}
+
+.carRowCard:hover {
+    background-color: #2e3333;
+}
+
+.carRowImg {
+    width: 160px;
+    height: 100px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.4);
+}
+
+.carRowImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carRowTitle {
+    color: #F5F6F6;
+}
+
+.carRowTitle h3 {
+    font-size: 20px;
+    margin-bottom: 4px;
+    color: #F5F6F6;
+}
+
+.carRowTitle span {
+    font-size: 13px;
+    color: #D1F200;
+    opacity: 0.7;
+}
+
+.carRowDescription {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    background-color: #1E2121;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-top: -5px;
+}
+
+.carRowDescription.expanded {
+    max-height: 2000px;
+    border: 1px solid rgba(209, 242, 0, 0.1);
+    border-top: none;
+}
+
+.carDescriptionContent {
+    padding: 25px;
+    color: #F5F6F6;
+    font-size: 15px;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: justify;
+}

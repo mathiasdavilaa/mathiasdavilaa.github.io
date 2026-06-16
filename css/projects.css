@@ -6,3 +6,90 @@
 body {
     background-color: #002420;
 }
+
+.projetos-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 140px;
+    padding-bottom: 100px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.grade-projetos {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-auto-rows: 280px;
+    gap: 25px;
+    max-width: 1400px;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+.projeto-card {
+    background-color: #1A1D1D;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(209, 242, 0, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.card-destaque {
+    grid-row: span 2;
+}
+
+.projeto-imagem {
+    width: 100%;
+    flex: 1;
+    overflow: hidden;
+    background-color: #252929;
+}
+
+.projeto-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.projeto-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #1A1D1D;
+}
+
+.projeto-info h3 {
+    font-family: sans-serif;
+    color: #F5F6F6;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.projeto-info span {
+    font-family: sans-serif;
+    color: #D1F200;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.projeto-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(209, 242, 0, 0.3);
+}
+
+.projeto-card:hover .projeto-imagem img {
+    transform: scale(1.03);
+}
+
+.projeto-card:hover .projeto-info h3 {
+    color: #D1F200;
+}

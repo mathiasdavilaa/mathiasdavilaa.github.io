@@ -4,32 +4,458 @@
         <title>who is mathias</title>
         <link rel="stylesheet" href="../css/about.css" />
         <link rel="stylesheet" href="../css/defaults/header.css" />
+        <link rel="stylesheet" href="../css/defaults/footer.css" />
     </head>
     <body>
+    <div id="headerLimit"></div>
         <header class="headerStyle">
             <div>
                 <nav class="headerLinks leftLinks">
                     <a href="../index.html" id="homeNav">Home</a>
-                    <a href="../pages/about.html" id="aboutNav">Sobre</a>
+                    <a href="../pages/about.html" id="aboutNav">About</a>
                 </nav>
 
                 <button id="buttonMenu" class="maxHelmet">
-                    <img
-                        src="../assets/THOR.png"
-                        alt="Menu"
-                        id="maxHelmet"
-                    />
+                    <img src="../assets/THOR.png" alt="Menu" id="maxHelmet" />
                 </button>
 
                 <nav class="headerLinks rightLinks">
-                    <a href="../pages/projects.html" id="projectsNav">Projetos</a>
-                    <a href="../pages/receitas.html" id="receitasNav">Receitas</a>
+                    <a href="../pages/projects.html" id="projectsNav"
+                        >Projects</a
+                    >
+                    <a href="../pages/receitas.html" id="receitasNav"
+                        >Recipes</a
+                    >
                 </nav>
             </div>
         </header>
 
-        <main style="height: 2000px; padding-top: 20px"></main>
+        <main style="padding-top: 100px">
+            <div id="aboutMathias" class="spaceHighlight">
+                <div class="mathiasText text-left">
+                    <span
+                        >"Hey guys! I'm Mathias. Here on this blog, I'm going to
+                        share some of the things I'm most into, and try to
+                        explain why I'm so passionate about them. In this
+                        section, I want to keep it super personal and not
+                        professional at all, just focusing on myself and my
+                        interests."</span
+                    >
+                </div>
+                <div id="mathiasPhoto">
+                    <img src="../assets/mathias.jpg" alt="Mathias" />
+                </div>
+                <div class="mathiasText text-right">
+                    <span
+                        >"Fala, pessoal! Eu sou o Mathias. Neste blog, vou
+                        compartilhar um pouco das coisas que eu mais curto e
+                        tentar explicar de onde vem essa minha paixão por elas.
+                        Nessa parte, a ideia é ser bem pessoal e deixar o lado
+                        profissional de lado, focando mesmo em mim e nos meus
+                        interesses."</span
+                    >
+                </div>
+            </div>
 
+            <div id="aboutGames" class="spaceHighlight">
+                <div class="gamesIntroText">
+                    <p>
+                        I'd like to start with one of my greatest passions:
+                        <strong>Video Games</strong>.
+                    </p>
+                    <p>
+                        Since I started playing when I was 9, I've always loved
+                        spending hours and hours on virtual spaces that bring me
+                        joy and in some cases, some of my best friends.
+                    </p>
+                    <p class="subHint">
+                        Click on a game to read my personal thoughts about it:
+                    </p>
+                </div>
+
+                <div class="gamesRow">
+                    <div class="gameCard" onclick="openGameModal('modalElden')">
+                        <img
+                            src="../assets/games/elden_ring.png"
+                            alt="ELDEN RING"
+                        />
+                    </div>
+                    <div
+                        class="gameCard"
+                        onclick="openGameModal('modalValorant')"
+                    >
+                        <img
+                            src="../assets/games/valorant.jpg"
+                            alt="VALORANT"
+                        />
+                    </div>
+                    <div
+                        class="gameCard"
+                        onclick="openGameModal('modalDeadlock')"
+                    >
+                        <img
+                            src="../assets/games/deadlock.jpg"
+                            alt="DEADLOCK"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <dialog id="modalElden" class="gameModal">
+                <div class="modalContent">
+                    <h2>Elden Ring</h2>
+                    <div class="modalBodyScroll">
+                        <p>
+                            Escreva aqui o quanto quiser sobre Elden Ring. Com
+                            suporte a rolagem interna, você pode detalhar suas
+                            mais de 400 horas de jogo, suas builds favoritas
+                            (como builds de Força ou Destreza), os chefes mais
+                            difíceis que enfrentou como Malenia e Radahn, e como
+                            a exploração pelas Terras Intermédias te cativou do
+                            início ao fim.
+                        </p>
+                        <p>
+                            Você pode adicionar múltiplos parágrafos, listas de
+                            conquistas ou qualquer outra memória marcante que
+                            queira eternizar no seu blog sem se preocupar com o
+                            espaço.
+                        </p>
+                    </div>
+                    <button
+                        class="closeModalBtn"
+                        onclick="closeGameModal('modalElden')"
+                    >
+                        Fechar
+                    </button>
+                </div>
+            </dialog>
+
+            <dialog id="modalValorant" class="gameModal">
+                <div class="modalContent">
+                    <h2>Valorant</h2>
+                    <div class="modalBodyScroll">
+                        <p>
+                            Escreva aqui sua descrição longa sobre Valorant.
+                            Compartilhe suas experiências no cenário
+                            competitivo, suas táticas jogando com seus amigos,
+                            quais são seus agentes principais (Duelistas,
+                            Iniciadores, Controladores ou Sentinelas) e como o
+                            trabalho em equipe e a mira afiada fazem parte da
+                            sua rotina de jogatina.
+                        </p>
+                    </div>
+                    <button
+                        class="closeModalBtn"
+                        onclick="closeGameModal('modalValorant')"
+                    >
+                        Fechar
+                    </button>
+                </div>
+            </dialog>
+
+            <dialog id="modalDeadlock" class="gameModal">
+                <div class="modalContent">
+                    <h2>Deadlock</h2>
+                    <div class="modalBodyScroll">
+                        <p>
+                            Escreva aqui sua descrição detalhada sobre o novo
+                            jogo da Valve. Fale sobre como a mistura única de
+                            mecânicas de MOBA (como lanes, itens e farm) com a
+                            dinâmica de umThird-Person Shooter trouxe um ar
+                            totalmente inovador e o que mais tem chamado sua
+                            atenção nas partidas recentes.
+                        </p>
+                    </div>
+                    <button
+                        class="closeModalBtn"
+                        onclick="closeGameModal('modalDeadlock')"
+                    >
+                        Fechar
+                    </button>
+                </div>
+            </dialog>
+
+            <div id="aboutPokemon" class="spaceHighlight">
+                <div class="pokemonIntroText">
+                    <p>
+                        Like games, Pokémon made my kidney and continues to
+                        influence my life, as one of my hobbies.
+                    </p>
+                    <p class="subHint">
+                        Here is some of Pokémon I like and its stats:
+                    </p>
+                </div>
+
+                <div class="pokemonGrid">
+                    <div class="pokemonCardShowdown">
+                        <div class="pokeHeader"><h3>NOIVERN</h3></div>
+                        <div class="pokeBody">
+                            <div class="pokeStatsList">
+                                <div class="statRow">
+                                    <span>HP</span><strong>85</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>ATK</span><strong>70</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>DEF</span><strong>80</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>BST</span><strong>535</strong>
+                                </div>
+                            </div>
+                            <div class="pokeBigImg">
+                                <a href="https://pokemondb.net/pokedex/noivern" target="_blank"><img src="../assets/pokemon/noivern.png" alt="Noivern"/></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pokemonCardShowdown">
+                        <div class="pokeHeader"><h3>SHEDINJA</h3></div>
+                        <div class="pokeBody">
+                            <div class="pokeStatsList">
+                                <div class="statRow">
+                                    <span>HP</span><strong>1</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>ATK</span><strong>90</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>DEF</span><strong>45</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>BST</span><strong>236</strong>
+                                </div>
+                            </div>
+                            <div class="pokeBigImg">
+                                <a href="https://pokemondb.net/pokedex/shedinja" target="_blank"><img src="../assets/pokemon/shedinja.png" alt="Shedinja"/></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pokemonCardShowdown">
+                        <div class="pokeHeader"><h3>METAGROSS</h3></div>
+                        <div class="pokeBody">
+                            <div class="pokeStatsList">
+                                <div class="statRow">
+                                    <span>HP</span><strong>80</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>ATK</span><strong>135</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>DEF</span><strong>130</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>BST</span><strong>600</strong>
+                                </div>
+                            </div>
+                            <div class="pokeBigImg">
+                                <a href="https://pokemondb.net/pokedex/metagross" target="_blank"><img src="../assets/pokemon/metagross.png" alt="Metagross"/></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pokemonCardShowdown">
+                        <div class="pokeHeader"><h3>KOMMO-O</h3></div>
+                        <div class="pokeBody">
+                            <div class="pokeStatsList">
+                                <div class="statRow">
+                                    <span>HP</span><strong>75</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>ATK</span><strong>110</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>DEF</span><strong>125</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>BST</span><strong>600</strong>
+                                </div>
+                            </div>
+                            <div class="pokeBigImg">
+                                <a href="https://pokemondb.net/pokedex/kommo-o" target="_blank"><img src="../assets/pokemon/kommo-o.png" alt="Kommo-o"/></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pokemonCardShowdown">
+                        <div class="pokeHeader"><h3>GOLISOPOD</h3></div>
+                        <div class="pokeBody">
+                            <div class="pokeStatsList">
+                                <div class="statRow">
+                                    <span>HP</span><strong>75</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>ATK</span><strong>125</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>DEF</span><strong>140</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>BST</span><strong>530</strong>
+                                </div>
+                            </div>
+                            <div class="pokeBigImg">
+                                <a href="https://pokemondb.net/pokedex/golisopod" target="_blank"><img src="../assets/pokemon/golisopod.png" alt="Golisopod"/></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pokemonCardShowdown">
+                        <div class="pokeHeader"><h3>MARSHADOW</h3></div>
+                        <div class="pokeBody">
+                            <div class="pokeStatsList">
+                                <div class="statRow">
+                                    <span>HP</span><strong>90</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>ATK</span><strong>125</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>DEF</span><strong>80</strong>
+                                </div>
+                                <div class="statRow">
+                                    <span>BST</span><strong>600</strong>
+                                </div>
+                            </div>
+                            <div class="pokeBigImg">
+                                <a href="https://pokemondb.net/pokedex/marshadow" target="_blank"><img src="../assets/pokemon/marshadow.png" alt="Marshadow"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🏎️ SEÇÃO CARROS (Atualizada com 2 carros) -->
+            <div id="aboutCars" class="spaceHighlight">
+                <div class="carsIntroText">
+                    <p>
+                        Some years ago I saw a car on Youtube, and started
+                        liking it, <strong>Porsche 911</strong> is the reason
+                        that I now am fascinated by these machines:
+                    </p>
+                    <p class="subHint">
+                        Click on a car layout row below to expand my full
+                        thoughts:
+                    </p>
+                </div>
+
+                <div class="carsContainerColumn">
+                    <!-- Carro 1 -->
+                    <div class="carRowWrapper">
+                        <div
+                            class="carRowCard"
+                            onclick="toggleCarDescription(this)"
+                        >
+                            <div class="carRowImg">
+                                <img
+                                    src="../assets/cars/porsche_classic.jpg"
+                                    alt="Porsche 911 Clássico"
+                                />
+                            </div>
+                            <div class="carRowTitle">
+                                <h3>Porsche 911 Carrera (Classic)</h3>
+                                <span>Click to expand details</span>
+                            </div>
+                        </div>
+                        <div class="carRowDescription">
+                            <div class="carDescriptionContent">
+                                <p>
+                                    Este foi o modelo que começou tudo. O design
+                                    clássico dos faróis redondos e a silhueta
+                                    inconfundível traseira tornaram-no num ícone
+                                    eterno das pistas e do YouTube.
+                                </p>
+                                <p>
+                                    Aqui você pode adicionar quantos parágrafos
+                                    quiser. O layout foi projetado para se
+                                    expandir verticalmente de forma ilimitada,
+                                    empurrando as divs de baixo perfeitamente e
+                                    mantendo a leitura confortável.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carro 2 -->
+                    <div class="carRowWrapper">
+                        <div
+                            class="carRowCard"
+                            onclick="toggleCarDescription(this)"
+                        >
+                            <div class="carRowImg">
+                                <img
+                                    src="../assets/cars/porsche_gt3rs.jpg"
+                                    alt="Porsche 911 GT3 RS"
+                                />
+                            </div>
+                            <div class="carRowTitle">
+                                <h3>Porsche 911 GT3 RS</h3>
+                                <span>Click to expand details</span>
+                            </div>
+                        </div>
+                        <div class="carRowDescription">
+                            <div class="carDescriptionContent">
+                                <p>
+                                    A definição perfeita de um carro de corrida
+                                    homologado para as ruas. A asa traseira
+                                    massiva e a engenharia aerodinâmica levam a
+                                    minha fascinação por engenharia a outro
+                                    nível.
+                                </p>
+                                <p>
+                                    Adicione especificações técnicas, tempos de
+                                    volta em Nürburgring, ou reflexões de vídeos
+                                    que você assistiu no YouTube sobre essa
+                                    máquina fantástica.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="site-footer">
+                <div class="footer-redes">
+
+                    <a href="https://instagram.com/mathiasdavilaa" target="_blank" rel="noopener noreferrer" class="footer-item">
+                        <span class="footer-nome">Instagram</span>
+                        <div class="footer-icone">
+                            <img src="../assets/icons/Instagram_icon_logo.png" alt="Instagram" />
+                        </div>
+                    </a>
+
+                    <a href="https://steamcommunity.com/id/madoase" target="_blank" rel="noopener noreferrer" class="footer-item">
+                        <span class="footer-nome">Steam</span>
+                        <div class="footer-icone">
+                            <img src="../assets/icons/Steam_icon_logo.png" alt="Steam" />
+                        </div>
+                    </a>
+
+                    <a href="https://discord.gg/dqc7RD9qSx" target="_blank" rel="noopener noreferrer" class="footer-item">
+                        <span class="footer-nome">Discord</span>
+                        <div class="footer-icone">
+                            <img src="../assets/icons/Discord_icon_logo.png" alt="Discord" />
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/mathiasdavilaa" target="_blank" rel="noopener noreferrer" class="footer-item">
+                        <span class="footer-nome">GitHub</span>
+                        <div class="footer-icone">
+                            <img src="../assets/icons/Github_icon_logo.png" alt="GitHub" />
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/mathiasdavilaa/" target="_blank" rel="noopener noreferrer" class="footer-item">
+                        <span class="footer-nome">LinkedIn</span>
+                        <div class="footer-icone">
+                            <img src="../assets/icons/Linkedin_icon_logo.png" alt="LinkedIn" />
+                        </div>
+                    </a>
+                </div>
+            </footer>
         <script src="../js/defaults/header.js"></script>
+        <script src="../js/about.js"></script>
     </body>
 </html>

@@ -1,41 +1,46 @@
 .headerStyle {
-    position: sticky;
-    top: 0;
+    position: absolute;
+    width: 100%;
     z-index: 1000;
     background-color: #1A1D1D;
-    width: 100%;
     transition: background-color 0.4s ease;
+}
 
-    > div {
-        background-color: #1A1D1D;
-        height: 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: auto;
-        width: 100%;
-        transition: all 0.4s ease;
-        padding: 0 15px;
-        box-sizing: border-box;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    }
+.headerStyle.fixado-no-topo {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
 
-    &.rolou {
-        background-color: rgba(0, 0, 0, 0) !important;
+.headerStyle > div {
+    background-color: #1A1D1D;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    transition: all 0.4s ease;
+    padding: 0 15px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 10px #D1F200;
+}
 
-        > div {
-            width: 100%;
-            max-width: 75px;
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-            justify-content: center;
-        }
-    }
+.headerStyle.rolou {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
 
-    &.rolou > div.expandido {
-        max-width: 500px;
-        justify-content: space-between;
-    }
+.headerStyle.rolou > div {
+    width: 100%;
+    max-width: 75px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0px 4px 10px #D1F200;
+    justify-content: center;
+}
+
+.headerStyle.rolou > div.expandido {
+    max-width: 500px;
+    justify-content: space-between;
 }
 
 .maxHelmet {
@@ -55,13 +60,13 @@
     height: 45px;
     opacity: 1;
     visibility: visible;
+}
 
-    #maxHelmet {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        pointer-events: none;
-    }
+.maxHelmet #maxHelmet {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
 }
 
 .headerLinks {
@@ -70,35 +75,32 @@
     flex: 1;
     opacity: 1;
     visibility: visible;
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease,
-        width 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease, width 0.3s ease;
     overflow: hidden;
+}
 
-    a {
-        color: #F5F6F6;
-        text-decoration: none;
-        font-size: 14px;
-        white-space: nowrap;
-    }
+.headerLinks a {
+    color: #F5F6F6;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
 }
 
 .leftLinks {
-    justify-content: flex-start
+    justify-content: flex-start;
 }
 
 .rightLinks {
     justify-content: flex-end;
 }
 
-.rolou .headerLinks {
+.headerStyle.rolou .headerLinks {
     opacity: 0;
     visibility: hidden;
     width: 0;
 }
 
-.rolou div.expandido .headerLinks {
+.headerStyle.rolou div.expandido .headerLinks {
     opacity: 1;
     visibility: visible;
     width: auto;
