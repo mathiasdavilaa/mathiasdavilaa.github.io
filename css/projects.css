@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #002420;
+    background-color: var(--bg-main);
 }
 
 main {
@@ -28,14 +28,14 @@ main {
 }
 
 .projeto-card {
-    background-color: #1A1D1D;
+    background-color: var(--bg-card);
     border-radius: 20px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     position: relative;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(209, 242, 0, 0.05);
+    border: 1px solid var(--accent-border-faint);
     transition: transform 0.3s ease, border-color 0.3s ease;
     cursor: pointer;
 }
@@ -48,7 +48,7 @@ main {
     width: 100%;
     flex: 1;
     overflow: hidden;
-    background-color: #252929;
+    background-color: var(--bg-subcard);
 }
 
 .projeto-imagem img {
@@ -63,12 +63,12 @@ main {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    background-color: #1A1D1D;
+    background-color: var(--bg-card);
 }
 
 .projeto-info h3 {
     font-family: sans-serif;
-    color: #F5F6F6;
+    color: var(--text-primary);
     font-size: 18px;
     font-weight: 600;
     transition: color 0.3s ease;
@@ -76,14 +76,14 @@ main {
 
 .projeto-info span {
     font-family: sans-serif;
-    color: #D1F200;
+    color: var(--accent);
     font-size: 13px;
     opacity: 0.8;
 }
 
 .projeto-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(209, 242, 0, 0.3);
+    border-color: var(--accent-border-strong);
 }
 
 .projeto-card:hover .projeto-imagem img {
@@ -91,5 +91,5 @@ main {
 }
 
 .projeto-card:hover .projeto-info h3 {
-    color: #D1F200;
+    color: var(--accent);
 }

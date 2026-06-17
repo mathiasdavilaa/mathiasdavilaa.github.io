@@ -1,0 +1,134 @@
+:root {
+    --bg-main: #002420;
+    --bg-card: #1A1D1D;
+    --bg-subcard: #252929;
+    --bg-subcard-hover: #2e3333;
+    --bg-collapse: #1E2121;
+    --text-primary: #F5F6F6;
+    --text-stat-row: #1A1D1D;
+    --bg-stat-row: #F5F6F6;
+    --accent: #D1F200;
+}
+
+html.light-mode {
+    --bg-main: #F4F6F6;
+    --bg-card: #F5F6F6;
+    --bg-subcard: #E4E7E7;
+    --bg-subcard-hover: #DBDFDF;
+    --bg-collapse: #D2D7D7;
+    --text-primary: #002420;
+    --text-stat-row: #F5F6F6;
+    --bg-stat-row: #002420;
+    --accent: #00A3E0;
+}
+
+/* Theme Toggle Button */
+#themeToggleBtn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background-color: var(--bg-card);
+    color: var(--accent);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#themeToggleBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+#themeToggleBtn svg {
+    pointer-events: none;
+    display: block;
+}
+
+/* Utility transparent variants */
+:root {
+    --border-subtle: rgba(245, 246, 246, 0.1);
+    --border-faint: rgba(245, 246, 246, 0.05);
+    --border-faintest: rgba(245, 246, 246, 0.04);
+    --accent-glow: rgba(209, 242, 0, 0.2);
+    --accent-glow-strong: rgba(209, 242, 0, 0.4);
+    --accent-border-faint: rgba(209, 242, 0, 0.05);
+    --accent-border-subtle: rgba(209, 242, 0, 0.1);
+    --accent-border-medium: rgba(209, 242, 0, 0.25);
+    --accent-border-strong: rgba(209, 242, 0, 0.3);
+}
+
+html.light-mode {
+    --border-subtle: rgba(0, 36, 32, 0.1);
+    --border-faint: rgba(0, 36, 32, 0.05);
+    --border-faintest: rgba(0, 36, 32, 0.04);
+    --accent-glow: rgba(0, 163, 224, 0.2);
+    --accent-glow-strong: rgba(0, 163, 224, 0.4);
+    --accent-border-faint: rgba(0, 163, 224, 0.05);
+    --accent-border-subtle: rgba(0, 163, 224, 0.1);
+    --accent-border-medium: rgba(0, 163, 224, 0.25);
+    --accent-border-strong: rgba(0, 163, 224, 0.3);
+}
+
+/* Accessibility Toggle Button */
+#accessibilityToggleBtn {
+    position: fixed;
+    bottom: 88px; /* Posicionado exatamente acima do botão de tema */
+    right: 24px;
+    z-index: 9999;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background-color: var(--bg-card);
+    color: var(--accent);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#accessibilityToggleBtn:hover, #accessibilityToggleBtn.active {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px var(--accent-glow-strong);
+    background-color: var(--bg-subcard);
+}
+
+#accessibilityToggleBtn svg {
+    pointer-events: none;
+    display: block;
+}
+
+/* Regra de Ouro: Multiplicador de Acessibilidade para TODOS os textos */
+html.accessibility-large-text *,
+html.accessibility-large-text body,
+html.accessibility-large-text h1,
+html.accessibility-large-text h2,
+html.accessibility-large-text h3,
+html.accessibility-large-text p,
+html.accessibility-large-text span,
+html.accessibility-large-text a,
+html.accessibility-large-text div {
+    /* Multiplica o tamanho atual por 1.5 (aumento de 50%) */
+    font-size: calc(100% * 1.2) !important;
+}
+
+/* Ajuste fino para os textos baseados em Viewport (vw) não quebrarem o cabeçalho/hero */
+html.accessibility-large-text #heroBannerTitle {
+    font-size: 7.5vw !important;
+}
+html.accessibility-large-text #heroBannerText {
+    font-size: 1.8vw !important;
+}
+html.accessibility-large-text #contadorHoras {
+    font-size: 46px !important;
+}

@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #002420;
+    background-color: var(--bg-main);
 }
 
 main {
@@ -19,19 +19,19 @@ main {
 }
 
 main .spaceHighlight {
-    background-color: #1A1D1D;
+    background-color: var(--bg-card);
     border-radius: 20px;
     position: relative;
     display: flex;
     box-sizing: border-box;
-    border: 1px solid rgba(209, 242, 0, 0.05);
+    border: 1px solid var(--accent-border-faint);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 main .spaceHighlight:hover {
-    border-color: rgba(209, 242, 0, 0.25) !important;
-    box-shadow: 0px 0px 20px rgba(209, 242, 0, 0.2), 0px 10px 30px rgba(0, 0, 0, 0.6) !important;
+    border-color: var(--accent-border-medium) !important;
+    box-shadow: 0px 0px 20px var(--accent-glow), 0px 10px 30px rgba(0, 0, 0, 0.6) !important;
 }
 
 #aboutMathias {
@@ -67,7 +67,7 @@ main .spaceHighlight:hover {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    color: #F5F6F6;
+    color: var(--text-primary);
     flex: 1;
     max-width: 450px;
     z-index: 2;
@@ -100,7 +100,7 @@ main .spaceHighlight:hover {
 }
 
 .freeTextColumn {
-    color: #F5F6F6;
+    color: var(--text-primary);
     font-family: sans-serif;
     font-size: 15px;
     line-height: 1.7;
@@ -112,7 +112,7 @@ main .spaceHighlight:hover {
 .freeTextDivider {
     width: 2px;
     height: 80px;
-    background: linear-gradient(to bottom, transparent, rgba(209, 242, 0, 0.4), transparent);
+    background: linear-gradient(to bottom, transparent, var(--accent-glow-strong), transparent);
 }
 
 #aboutGames {
@@ -124,7 +124,7 @@ main .spaceHighlight:hover {
 }
 
 .gamesIntroText {
-    color: #F5F6F6;
+    color: var(--text-primary);
     font-size: 16px;
     line-height: 1.6;
     display: flex;
@@ -133,13 +133,13 @@ main .spaceHighlight:hover {
 }
 
 .gamesIntroText strong {
-    color: #D1F200;
+    color: var(--accent);
 }
 
 .gamesIntroText .subHint {
     margin-top: 10px;
     font-style: italic;
-    color: #D1F200;
+    color: var(--accent);
     opacity: 0.8;
 }
 
@@ -159,13 +159,13 @@ main .spaceHighlight:hover {
     position: relative;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
     cursor: pointer;
-    border: 1px solid rgba(209, 242, 0, 0.05);
+    border: 1px solid var(--accent-border-faint);
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .gameCard:hover {
     transform: translateY(-4px) !important;
-    border-color: rgba(209, 242, 0, 0.3) !important;
+    border-color: var(--accent-border-strong) !important;
 }
 
 .gameCard img {
@@ -183,12 +183,12 @@ main .spaceHighlight:hover {
     margin: auto;
     border: none;
     border-radius: 20px;
-    background-color: #1A1D1D;
+    background-color: var(--bg-card);
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.7);
     max-width: 600px;
     width: 90%;
     padding: 30px;
-    color: #F5F6F6;
+    color: var(--text-primary);
     max-height: 70vh;
 }
 
@@ -205,9 +205,9 @@ main .spaceHighlight:hover {
 }
 
 .modalContent h2 {
-    color: #D1F200;
+    color: var(--accent);
     font-size: 24px;
-    border-bottom: 2px solid #252929;
+    border-bottom: 2px solid var(--bg-subcard);
     padding-bottom: 8px;
 }
 
@@ -227,14 +227,14 @@ main .spaceHighlight:hover {
 }
 
 .modalBodyScroll::-webkit-scrollbar-thumb {
-    background-color: #252929;
+    background-color: var(--bg-subcard);
     border-radius: 10px;
 }
 
 .closeModalBtn {
     align-self: flex-end;
-    background-color: #D1F200;
-    color: #1A1D1D;
+    background-color: var(--accent);
+    color: var(--text-stat-row);
     border: none;
     padding: 8px 20px;
     font-weight: bold;
@@ -257,7 +257,7 @@ main .spaceHighlight:hover {
 }
 
 .pokemonIntroText {
-    color: #F5F6F6;
+    color: var(--text-primary);
     font-size: 16px;
     line-height: 1.6;
     display: flex;
@@ -267,7 +267,7 @@ main .spaceHighlight:hover {
 
 .pokemonIntroText .subHint {
     font-style: italic;
-    color: #D1F200;
+    color: var(--accent);
     opacity: 0.8;
 }
 
@@ -279,7 +279,7 @@ main .spaceHighlight:hover {
 }
 
 .pokemonCardShowdown {
-    background-color: #252929;
+    background-color: var(--bg-subcard);
     border-radius: 20px;
     padding: 20px;
     display: flex;
@@ -287,18 +287,18 @@ main .spaceHighlight:hover {
     gap: 15px;
     box-sizing: border-box;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4) !important;
-    border: 1px solid rgba(209, 242, 0, 0.1) !important;
+    border: 1px solid var(--accent-border-subtle) !important;
     transform: none !important;
 }
 
 .pokemonCardShowdown .pokeHeader {
-    background-color: #1A1D1D;
+    background-color: var(--bg-card);
     padding: 10px 15px;
     border-radius: 10px;
 }
 
 .pokemonCardShowdown .pokeHeader h3 {
-    color: #F5F6F6;
+    color: var(--text-primary);
     font-size: 20px;
     letter-spacing: 1px;
 }
@@ -320,8 +320,8 @@ main .spaceHighlight:hover {
 }
 
 .pokemonCardShowdown .pokeStatsList .statRow {
-    background-color: #F5F6F6;
-    color: #1A1D1D;
+    background-color: var(--text-primary);
+    color: var(--text-stat-row);
     padding: 8px 12px;
     border-radius: 8px;
     display: flex;
@@ -337,7 +337,7 @@ main .spaceHighlight:hover {
 }
 
 .pokemonCardShowdown .pokeStatsList .statRow strong {
-    color: #002420;
+    color: var(--bg-main);
     font-size: 15px;
 }
 
@@ -371,7 +371,7 @@ main .spaceHighlight:hover {
 }
 
 .carsIntroText {
-    color: #F5F6F6;
+    color: var(--text-primary);
     font-size: 16px;
     line-height: 1.6;
     display: flex;
@@ -380,12 +380,12 @@ main .spaceHighlight:hover {
 }
 
 .carsIntroText strong {
-    color: #D1F200;
+    color: var(--accent);
 }
 
 .carsIntroText .subHint {
     font-style: italic;
-    color: #D1F200;
+    color: var(--accent);
     opacity: 0.8;
 }
 
@@ -403,7 +403,7 @@ main .spaceHighlight:hover {
 }
 
 .carRowCard {
-    background-color: #252929;
+    background-color: var(--bg-subcard);
     border-radius: 15px;
     display: flex;
     flex-direction: row;
@@ -413,12 +413,12 @@ main .spaceHighlight:hover {
     cursor: pointer;
     transition: background-color 0.3s ease;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important;
-    border: 1px solid rgba(209, 242, 0, 0.05) !important;
+    border: 1px solid var(--accent-border-faint) !important;
     transform: none !important;
 }
 
 .carRowCard:hover {
-    background-color: #2e3333;
+    background-color: var(--bg-subcard-hover);
 }
 
 .carRowImg {
@@ -436,18 +436,18 @@ main .spaceHighlight:hover {
 }
 
 .carRowTitle {
-    color: #F5F6F6;
+    color: var(--text-primary);
 }
 
 .carRowTitle h3 {
     font-size: 20px;
     margin-bottom: 4px;
-    color: #F5F6F6;
+    color: var(--text-primary);
 }
 
 .carRowTitle span {
     font-size: 13px;
-    color: #D1F200;
+    color: var(--accent);
     opacity: 0.7;
 }
 
@@ -455,7 +455,7 @@ main .spaceHighlight:hover {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
-    background-color: #1E2121;
+    background-color: var(--bg-collapse);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     margin-top: -5px;
@@ -463,13 +463,13 @@ main .spaceHighlight:hover {
 
 .carRowDescription.expanded {
     max-height: 2000px;
-    border: 1px solid rgba(209, 242, 0, 0.1);
+    border: 1px solid var(--accent-border-subtle);
     border-top: none;
 }
 
 .carDescriptionContent {
     padding: 25px;
-    color: #F5F6F6;
+    color: var(--text-primary);
     font-size: 15px;
     line-height: 1.7;
     display: flex;
@@ -486,6 +486,6 @@ main .spaceHighlight:hover {
     .freeTextDivider {
         width: 60%;
         height: 2px;
-        background: linear-gradient(to right, transparent, rgba(209, 242, 0, 0.4), transparent);
+        background: linear-gradient(to right, transparent, var(--accent-glow-strong), transparent);
     }
 }

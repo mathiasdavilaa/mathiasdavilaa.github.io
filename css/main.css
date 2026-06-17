@@ -4,13 +4,13 @@
 }
 
 body {
-    background-color: #002420;
+    background-color: var(--bg-main);
 }
 
 .heroBanner {
     width: 100%;
     height: 100vh;
-    background-color: #F5F6F6;
+    background-color: var(--text-primary);
     display: flex;
     position: relative;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/thor-valkyrie.jpg);
@@ -59,7 +59,7 @@ main {
 /* SECÇÃO: SHORT ABOUT (CONTAINER DOS BANNER GIFS) */
 
 #shortAbout {
-    background-color: #1A1D1D;
+    background-color: var(--bg-card);
     max-width: 1400px;
     max-height: 350px;
     width: 100%;
@@ -72,14 +72,14 @@ main {
     justify-content: space-evenly;
     gap: 10px;
     align-items: center;
-    border: 1px solid rgba(209, 242, 0, 0.05);
+    border: 1px solid var(--accent-border-faint);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #shortAbout:hover {
-    border-color: rgba(209, 242, 0, 0.25) !important;
-    box-shadow: 0px 0px 20px rgba(209, 242, 0, 0.2), 0px 10px 30px rgba(0, 0, 0, 0.6) !important;
+    border-color: var(--accent-border-medium) !important;
+    box-shadow: 0px 0px 20px var(--accent-glow), 0px 10px 30px rgba(0, 0, 0, 0.6) !important;
 }
 
 .shortTags {
@@ -92,13 +92,13 @@ main {
     overflow: hidden;
     display: flex;
     box-shadow: none !important;
-    border: 1px solid rgba(209, 242, 0, 0.05);
+    border: 1px solid var(--accent-border-faint);
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .shortTags:hover {
     transform: translateY(-4px) !important;
-    border-color: rgba(209, 242, 0, 0.3) !important;
+    border-color: var(--accent-border-strong) !important;
 }
 
 .shortTags a {
@@ -120,7 +120,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(209, 242, 0, 0.3) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, var(--accent-border-strong) 100%);
     pointer-events: none;
 }
 
@@ -136,20 +136,20 @@ main {
 }
 
 .bloco-info {
-    background-color: #1A1D1D;
+    background-color: var(--bg-card);
     border-radius: 20px;
     padding: 30px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(209, 242, 0, 0.05);
+    border: 1px solid var(--accent-border-faint);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .bloco-info:hover {
-    border-color: rgba(209, 242, 0, 0.25) !important;
-    box-shadow: 0px 0px 20px rgba(209, 242, 0, 0.2), 0px 10px 30px rgba(0, 0, 0, 0.6) !important;
+    border-color: var(--accent-border-medium) !important;
+    box-shadow: 0px 0px 20px var(--accent-glow), 0px 10px 30px rgba(0, 0, 0, 0.6) !important;
 }
 
 #mathiasBirthday {
@@ -160,7 +160,7 @@ main {
 }
 
 #mathiasBirthday h3 {
-    color: #F5F6F6;
+    color: var(--text-primary);
     font-family: sans-serif;
     font-size: 18px;
     font-weight: 600;
@@ -168,17 +168,17 @@ main {
 }
 
 #contadorHoras {
-    color: #D1F200;
+    color: var(--accent);
     font-family: sans-serif;
     font-size: 38px;
     font-weight: bold;
     margin-bottom: 10px;
-    text-shadow: 0px 4px 10px rgba(209, 242, 0, 0.2);
+    text-shadow: 0px 4px 10px var(--accent-glow);
     letter-spacing: -1px;
 }
 
 #mathiasBirthday span {
-    color: #F5F6F6;
+    color: var(--text-primary);
     font-family: sans-serif;
     font-size: 13px;
     opacity: 0.6;
@@ -189,12 +189,12 @@ main {
 }
 
 #calendarioJunho h3 {
-    color: #F5F6F6;
+    color: var(--text-primary);
     font-family: sans-serif;
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 25px;
-    border-bottom: 1px solid rgba(245, 246, 246, 0.1);
+    border-bottom: 1px solid var(--border-subtle);
     padding-bottom: 10px;
 }
 
@@ -206,8 +206,8 @@ main {
 }
 
 .cal-dia {
-    background-color: #252929;
-    color: #F5F6F6;
+    background-color: var(--bg-subcard);
+    color: var(--text-primary);
     font-family: sans-serif;
     font-size: 14px;
     height: 45px;
@@ -223,7 +223,7 @@ main {
 
 .cal-header {
     background-color: transparent;
-    color: #D1F200;
+    color: var(--accent);
     font-weight: bold;
     height: auto;
     padding-bottom: 5px;
@@ -234,11 +234,11 @@ main {
 }
 
 .cal-dia.marcado {
-    background-color: #D1F200;
-    color: #1A1D1D;
+    background-color: var(--accent);
+    color: var(--text-stat-row);
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0px 0px 8px rgba(209, 242, 0, 0.4) !important;
+    box-shadow: 0px 0px 8px var(--accent-glow-strong) !important;
 }
 
 .cal-dia.marcado::after {
@@ -247,8 +247,8 @@ main {
     bottom: 55px;
     left: 50%;
     transform: translateX(-50%) scale(0.8);
-    background-color: #1E2121;
-    color: #D1F200;
+    background-color: var(--bg-collapse);
+    color: var(--accent);
     padding: 6px 12px;
     border-radius: 6px;
     font-size: 11px;
@@ -257,7 +257,7 @@ main {
     visibility: hidden;
     transition: all 0.2s ease;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(209, 242, 0, 0.2);
+    border: 1px solid var(--accent-glow);
     z-index: 10;
 }
 
@@ -270,7 +270,7 @@ main {
 /* SECÇÃO: FEED DO INSTAGRAM */
 
 #instagramFeed {
-    background-color: #1A1D1D;
+    background-color: var(--bg-card);
     max-width: 1400px;
     width: 100%;
     border-radius: 20px;
@@ -280,7 +280,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border: 1px solid rgba(209, 242, 0, 0.05);
+    border: 1px solid var(--accent-border-faint);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
     transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
@@ -294,14 +294,14 @@ main {
 }
 
 .instaHeader h3 {
-    color: #F5F6F6;
+    color: var(--text-primary);
     font-family: sans-serif;
     font-size: 18px;
     font-weight: 600;
 }
 
 .instaHeader h3 a {
-    color: #D1F200;
+    color: var(--accent);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -325,8 +325,8 @@ main {
     aspect-ratio: 1 / 1;
     border-radius: 12px;
     overflow: hidden;
-    background-color: #252929;
-    border: 1px solid rgba(245, 246, 246, 0.05);
+    background-color: var(--bg-subcard);
+    border: 1px solid var(--border-faint);
     position: relative;
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
@@ -374,7 +374,7 @@ main {
 }
 
 .instaDate {
-    color: #F5F6F6;
+    color: var(--text-primary);
     font-family: sans-serif;
     font-size: 12px;
     opacity: 0.8;
@@ -388,7 +388,7 @@ main {
 }
 
 .instaStats span {
-    color: #F5F6F6;
+    color: var(--text-primary);
     font-family: sans-serif;
     font-size: 15px;
     font-weight: bold;
