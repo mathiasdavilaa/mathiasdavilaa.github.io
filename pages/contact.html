@@ -1,77 +1,96 @@
 <!doctype html>
 <html>
     <head>
-        <title>contact mathias</title>
-        <link rel="stylesheet" href="../css/main.css" />
+        <title>contact me</title>
         <link rel="stylesheet" href="../css/defaults/header.css" />
         <link rel="stylesheet" href="../css/defaults/footer.css" />
+        <link rel="stylesheet" href="../css/contact.css" />
     </head>
     <body>
-        <header class="headerStyle">
-            <div>
-                <nav class="headerLinks leftLinks">
-                    <a href="../index.html" id="homeNav">Home</a>
-                    <a href="../pages/about.html" id="aboutNav">About</a>
-                    <a href="../pages/contact.html" id="contactNav">Contact me</a>
-                </nav>
+        <div class="conteudo-pagina">
+            <div id="headerLimit"></div>
 
-                <button id="buttonMenu" class="maxHelmet">
-                    <img
-                        src="../assets/THOR.png"
-                        alt="Menu"
-                        id="maxHelmet"
-                    />
-                </button>
+            <header class="headerStyle">
+                <div>
+                    <nav class="headerLinks leftLinks">
+                        <a href="../index.html" id="homeNav">Home</a>
+                        <a href="../pages/about.html" id="aboutNav">About</a>
+                        <a href="../pages/contact.html" id="contactNav">Contact me</a>
+                    </nav>
 
-                <nav class="headerLinks rightLinks">
-                    <a href="../pages/curriculum.html" id="curriculumNav">Curriculum</a>
-                    <a href="../pages/projects.html" id="projectsNav">Projects</a>
-                    <a href="../pages/receitas.html" id="receitasNav">Recipes</a>
-                </nav>
-            </div>
-        </header>
+                    <button id="buttonMenu" class="maxHelmet">
+                        <img
+                            src="../assets/THOR.png"
+                            alt="Menu"
+                            id="maxHelmet"
+                        />
+                    </button>
 
-        <main style="height: 2000px; padding-top: 20px"></main>
-        <footer class="site-footer">
+                    <nav class="headerLinks rightLinks">
+                        <a href="../pages/curriculum.html" id="curriculumNav">Curriculum</a>
+                        <a href="../pages/projects.html" id="projectsNav">Projects</a>
+                        <a href="../pages/receitas.html" id="receitasNav">Recipes</a>
+                    </nav>
+                </div>
+            </header>
+
+            <main>
+                <div class="contactContainer">
+                    <h1>Contact me</h1>
+
+                    <form action="https://formspree.io/f/xpqeepab" method="POST">
+
+                        <div class="formGroup">
+                            <label for="nome">Name</label>
+                            <input type="text" id="nome" name="name" placeholder="Your name" required />
+                        </div>
+
+                        <div class="formGroup">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="Your email" required />
+                        </div>
+
+                        <div class="formGroup">
+                            <label for="assunto">Topic</label>
+                            <input type="text" id="assunto" name="subject" placeholder="What is the topic?" required />
+                        </div>
+
+                        <div class="formGroup">
+                            <label for="mensagem">Message</label>
+                            <textarea id="mensagem" name="message" placeholder="Write your message down..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btnSubmit">Send message</button>
+
+                    </form>
+                </div>
+            </main>
+
+            <footer class="site-footer">
                 <div class="footer-redes">
-
                     <a href="https://instagram.com/mathiasdavilaa" target="_blank" rel="noopener noreferrer" class="footer-item">
                         <span class="footer-nome">Instagram</span>
-                        <div class="footer-icone">
-                            <img src="../assets/icons/Instagram_icon_logo.png" alt="Instagram" />
-                        </div>
+                        <div class="footer-icone"><img src="../assets/icons/Instagram_icon_logo.png" alt="Instagram" /></div>
                     </a>
-
-                    <a href="https://steamcommunity.com/id/madoase" target="_blank" rel="noopener noreferrer" class="footer-item">
+                    <a href="https://steamcommunity.com/id/mathiasdavilaa/" target="_blank" rel="noopener noreferrer" class="footer-item">
                         <span class="footer-nome">Steam</span>
-                        <div class="footer-icone">
-                            <img src="../assets/icons/Steam_icon_logo.png" alt="Steam" />
-                        </div>
+                        <div class="footer-icone"><img src="../assets/icons/Steam_icon_logo.png" alt="Steam" /></div>
                     </a>
-
                     <a href="https://discord.gg/dqc7RD9qSx" target="_blank" rel="noopener noreferrer" class="footer-item">
                         <span class="footer-nome">Discord</span>
-                        <div class="footer-icone">
-                            <img src="../assets/icons/Discord_icon_logo.png" alt="Discord" />
-                        </div>
+                        <div class="footer-icone"><img src="../assets/icons/Discord_icon_logo.png" alt="Discord" /></div>
                     </a>
-
                     <a href="https://github.com/mathiasdavilaa" target="_blank" rel="noopener noreferrer" class="footer-item">
                         <span class="footer-nome">GitHub</span>
-                        <div class="footer-icone">
-                            <img src="../assets/icons/Github_icon_logo.png" alt="GitHub" />
-                        </div>
+                        <div class="footer-icone"><img src="../assets/icons/Github_icon_logo.png" alt="GitHub" /></div>
                     </a>
-
                     <a href="https://www.linkedin.com/in/mathiasdavilaa/" target="_blank" rel="noopener noreferrer" class="footer-item">
                         <span class="footer-nome">LinkedIn</span>
-                        <div class="footer-icone">
-                            <img src="../assets/icons/Linkedin_icon_logo.png" alt="LinkedIn" />
-                        </div>
+                        <div class="footer-icone"><img src="../assets/icons/Linkedin_icon_logo.png" alt="LinkedIn" /></div>
                     </a>
                 </div>
             </footer>
-
+        </div>
         <script src="../js/defaults/header.js"></script>
     </body>
 </html>
