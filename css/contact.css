@@ -1,5 +1,3 @@
-/* ESTILOS GLOBAIS DA PÁGINA DE CONTACTO */
-
 body {
     background-color: var(--bg-main);
     margin: 0;
@@ -25,8 +23,6 @@ main {
     box-sizing: border-box;
     flex: 1;
 }
-
-/* ESTILO DO CONTAINER DO FORMULÁRIO */
 
 .contactContainer {
     max-width: 600px;

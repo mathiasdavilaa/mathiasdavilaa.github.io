@@ -51,7 +51,6 @@
     });
   }
 
-  // Apply saved theme immediately to avoid flash
   const saved = localStorage.getItem(STORAGE_KEY) || 'dark';
   if (saved === 'light') document.documentElement.classList.add('light-mode');
 

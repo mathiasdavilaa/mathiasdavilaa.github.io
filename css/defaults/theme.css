@@ -22,7 +22,6 @@ html.light-mode {
     --accent: #00A3E0;
 }
 
-/* Theme Toggle Button */
 #themeToggleBtn {
     position: fixed;
     bottom: 24px;
@@ -52,7 +51,6 @@ html.light-mode {
     display: block;
 }
 
-/* Utility transparent variants */
 :root {
     --border-subtle: rgba(245, 246, 246, 0.1);
     --border-faint: rgba(245, 246, 246, 0.05);
@@ -77,10 +75,9 @@ html.light-mode {
     --accent-border-strong: rgba(0, 163, 224, 0.3);
 }
 
-/* Accessibility Toggle Button */
 #accessibilityToggleBtn {
     position: fixed;
-    bottom: 88px; /* Posicionado exatamente acima do botão de tema */
+    bottom: 88px;
     right: 24px;
     z-index: 9999;
     width: 48px;
@@ -108,7 +105,6 @@ html.light-mode {
     display: block;
 }
 
-/* Regra de Ouro: Multiplicador de Acessibilidade para TODOS os textos */
 html.accessibility-large-text *,
 html.accessibility-large-text body,
 html.accessibility-large-text h1,
@@ -118,11 +114,9 @@ html.accessibility-large-text p,
 html.accessibility-large-text span,
 html.accessibility-large-text a,
 html.accessibility-large-text div {
-    /* Multiplica o tamanho atual por 1.5 (aumento de 50%) */
     font-size: calc(100% * 1.2) !important;
 }
 
-/* Ajuste fino para os textos baseados em Viewport (vw) não quebrarem o cabeçalho/hero */
 html.accessibility-large-text #heroBannerTitle {
     font-size: 7.5vw !important;
 }

@@ -12,7 +12,6 @@
       btn.setAttribute('title', isActive ? 'Diminuir tamanho do texto' : 'Aumentar tamanho do texto');
       btn.innerHTML = getAccessibilityIcon();
 
-      // Feedback visual opcional: deixa o botão ativo com cor de destaque permanente
       if (isActive) {
         btn.classList.add('active');
       } else {
@@ -22,7 +21,6 @@
   }
 
   function getAccessibilityIcon() {
-    // Ícone universal de acessibilidade (A+)
     return `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M16 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/>
       <path d="M8 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3"/>
@@ -48,7 +46,6 @@
     });
   }
 
-  // Aplica imediatamente antes de renderizar a página para evitar flickering
   const saved = localStorage.getItem(STORAGE_KEY) === 'true';
   if (saved) document.documentElement.classList.add('accessibility-large-text');
 
