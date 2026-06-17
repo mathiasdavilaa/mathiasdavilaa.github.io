@@ -18,27 +18,21 @@ main {
     box-sizing: border-box;
 }
 
-/* ESTRUTURA DAS SEÇÕES (CONTAINERS PRINCIPAIS) */
-
 main .spaceHighlight {
     background-color: #1A1D1D;
     border-radius: 20px;
     position: relative;
     display: flex;
     box-sizing: border-box;
-    /* Borda e sombra padrão iniciais */
     border: 1px solid rgba(209, 242, 0, 0.05);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efeito de iluminação focado estritamente no bloco da seção */
 main .spaceHighlight:hover {
     border-color: rgba(209, 242, 0, 0.25) !important;
     box-shadow: 0px 0px 20px rgba(209, 242, 0, 0.2), 0px 10px 30px rgba(0, 0, 0, 0.6) !important;
 }
-
-/* SEÇÃO: SOBRE MATHIAS */
 
 #aboutMathias {
     max-width: 1400px;
@@ -87,7 +81,39 @@ main .spaceHighlight:hover {
     text-align: justify;
 }
 
-/* SEÇÃO: GAMES & MODAL */
+#aboutFreeText {
+    max-width: 1400px;
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.freeTextContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+}
+
+.freeTextColumn {
+    color: #F5F6F6;
+    font-family: sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    flex: 1;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.freeTextDivider {
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, rgba(209, 242, 0, 0.4), transparent);
+}
 
 #aboutGames {
     max-width: 1400px;
@@ -222,8 +248,6 @@ main .spaceHighlight:hover {
     opacity: 0.9;
 }
 
-/* SEÇÃO: POKÉMON */
-
 #aboutPokemon {
     max-width: 1400px;
     width: 100%;
@@ -337,8 +361,6 @@ main .spaceHighlight:hover {
 .pokemonCardShowdown:hover .pokeBigImg img {
     transform: scale(1.1) translateY(-5px);
 }
-
-/* SEÇÃO: CARROS */
 
 #aboutCars {
     max-width: 1400px;
@@ -454,4 +476,16 @@ main .spaceHighlight:hover {
     flex-direction: column;
     gap: 15px;
     text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .freeTextContainer {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .freeTextDivider {
+        width: 60%;
+        height: 2px;
+        background: linear-gradient(to right, transparent, rgba(209, 242, 0, 0.4), transparent);
+    }
 }
