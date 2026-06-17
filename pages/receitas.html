@@ -1,12 +1,15 @@
 <!doctype html>
 <html>
     <head>
-        <title>favorite recipes</title>
+        <title>mathias' recipes</title>
         <link rel="stylesheet" href="../css/receitas.css" />
         <link rel="stylesheet" href="../css/defaults/header.css" />
         <link rel="stylesheet" href="../css/defaults/footer.css" />
     </head>
     <body>
+        <div class="conteudo-pagina">
+        <div id="headerLimit"></div>
+
         <header class="headerStyle">
             <div>
                 <nav class="headerLinks leftLinks">
@@ -15,11 +18,7 @@
                 </nav>
 
                 <button id="buttonMenu" class="maxHelmet">
-                    <img
-                        src="../assets/THOR.png"
-                        alt="Menu"
-                        id="maxHelmet"
-                    />
+                    <img src="../assets/THOR.png" alt="Menu" id="maxHelmet" />
                 </button>
 
                 <nav class="headerLinks rightLinks">
@@ -29,47 +28,87 @@
             </div>
         </header>
 
-        <main style="height: 2000px; padding-top: 20px"></main>
-        <footer class="site-footer">
-                <div class="footer-redes">
-
-                    <a href="https://instagram.com/mathiasdavilaa" target="_blank" rel="noopener noreferrer" class="footer-item">
-                        <span class="footer-nome">Instagram</span>
-                        <div class="footer-icone">
-                            <img src="../assets/icons/Instagram_icon_logo.png" alt="Instagram" />
-                        </div>
-                    </a>
-
-                    <a href="https://steamcommunity.com/id/madoase" target="_blank" rel="noopener noreferrer" class="footer-item">
-                        <span class="footer-nome">Steam</span>
-                        <div class="footer-icone">
-                            <img src="../assets/icons/Steam_icon_logo.png" alt="Steam" />
-                        </div>
-                    </a>
-
-                    <a href="https://discord.gg/dqc7RD9qSx" target="_blank" rel="noopener noreferrer" class="footer-item">
-                        <span class="footer-nome">Discord</span>
-                        <div class="footer-icone">
-                            <img src="../assets/icons/Discord_icon_logo.png" alt="Discord" />
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/mathiasdavilaa" target="_blank" rel="noopener noreferrer" class="footer-item">
-                        <span class="footer-nome">GitHub</span>
-                        <div class="footer-icone">
-                            <img src="../assets/icons/Github_icon_logo.png" alt="GitHub" />
-                        </div>
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/mathiasdavilaa/" target="_blank" rel="noopener noreferrer" class="footer-item">
-                        <span class="footer-nome">LinkedIn</span>
-                        <div class="footer-icone">
-                            <img src="../assets/icons/Linkedin_icon_logo.png" alt="LinkedIn" />
-                        </div>
-                    </a>
+        <main>
+            <div id="recipesIntro" class="spaceHighlight">
+                <div class="introText">
+                    <h2>Mathias' favorite recipes</h2>
                 </div>
-            </footer>
+            </div>
 
+            <div class="recipesGrid">
+
+                <div class="recipeSummaryCard">
+                    <div class="recipeSummaryImg">
+                        <img src="../assets/receitas/mousse-maracuja.png" alt="foto do mousse" />
+                    </div>
+                    <div class="recipeSummaryContent">
+                        <span class="recipeCategory">WebLab - 2025/1</span>
+                        <h3>Mousse de Maracujá</h3>
+                        <p>Uma sobremesa deliciosa e super prática de fazer, perfeita para adoçar qualquer momento do dia.</p>
+                        <a href="./receitas/mousse.html" class="btnViewRecipe">Ver Receita Completa</a>
+                    </div>
+                </div>
+                <div class="recipeSummaryCard">
+                    <div class="recipeSummaryImg">
+                        <img src="../assets/receitas/torta-bolacha.png" alt="foto da torta de bolacha" />
+                    </div>
+                    <div class="recipeSummaryContent">
+                        <span class="recipeCategory">WebLab - 2025/1</span>
+                        <h3>Torta de bolacha Ana Maria</h3>
+                        <p>É ideal para servir em ocasiões especiais com a família e amigos, como o almoço de Páscoa ou a ceia de Natal. </p>
+                        <a href="./receitas/torta-bolacha.html" class="btnViewRecipe">Ver Receita Completa</a>
+                    </div>
+                </div>
+                <div class="recipeSummaryCard">
+                    <div class="recipeSummaryImg">
+                        <img src="../assets/receitas/cookie-americano.png" alt="foto dos cookies" />
+                    </div>
+                    <div class="recipeSummaryContent">
+                        <span class="recipeCategory">WebLab - 2025/1</span>
+                        <h3>Cookie Americano</h3>
+                        <p>Simples e fácil, a receita é ideal para servir no lanche da tarde ou até mesmo mandar na lancheira das crianças.</p>
+                        <a href="./receitas/cookies.html" class="btnViewRecipe">Ver Receita Completa</a>
+                    </div>
+                </div><div class="recipeSummaryCard">
+                    <div class="recipeSummaryImg">
+                        <img src="../assets/receitas/chocolate-quente.png" alt="foto do mousse" />
+                    </div>
+                    <div class="recipeSummaryContent">
+                        <span class="recipeCategory">WebLab - 2025/1</span>
+                        <h3>Chocolate Quente</h3>
+                        <p>É perfeita para deixar o corpo bem aquecido nos dias mais frios do ano.</p>
+                        <a href="./receitas/chocolate-quente.html" class="btnViewRecipe">Ver Receita Completa</a>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-redes">
+                <a href="https://instagram.com/mathiasdavilaa" target="_blank" rel="noopener noreferrer" class="footer-item">
+                    <span class="footer-nome">Instagram</span>
+                    <div class="footer-icone"><img src="../assets/icons/Instagram_icon_logo.png" alt="Instagram" /></div>
+                </a>
+                <a href="https://steamcommunity.com/id/mathiasdavilaa/" target="_blank" rel="noopener noreferrer" class="footer-item">
+                    <span class="footer-nome">Steam</span>
+                    <div class="footer-icone"><img src="../assets/icons/Steam_icon_logo.png" alt="Steam" /></div>
+                </a>
+                <a href="https://discord.gg/dqc7RD9qSx" target="_blank" rel="noopener noreferrer" class="footer-item">
+                    <span class="footer-nome">Discord</span>
+                    <div class="footer-icone"><img src="../assets/icons/Discord_icon_logo.png" alt="Discord" /></div>
+                </a>
+                <a href="https://github.com/mathiasdavilaa" target="_blank" rel="noopener noreferrer" class="footer-item">
+                    <span class="footer-nome">GitHub</span>
+                    <div class="footer-icone"><img src="../assets/icons/Github_icon_logo.png" alt="GitHub" /></div>
+                </a>
+                <a href="https://www.linkedin.com/in/mathiasdavilaa/" target="_blank" rel="noopener noreferrer" class="footer-item">
+                    <span class="footer-nome">LinkedIn</span>
+                    <div class="footer-icone"><img src="../assets/icons/Linkedin_icon_logo.png" alt="LinkedIn" /></div>
+                </a>
+            </div>
+        </footer>
+        </div>
         <script src="../js/defaults/header.js"></script>
     </body>
 </html>

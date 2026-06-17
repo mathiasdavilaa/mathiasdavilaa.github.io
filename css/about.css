@@ -18,9 +18,7 @@ main {
     box-sizing: border-box;
 }
 
-/* ==========================================================================
-   ESTRUTURA DAS SEÇÕES (CONTAINERS PRINCIPAIS)
-   ========================================================================== */
+/* ESTRUTURA DAS SEÇÕES (CONTAINERS PRINCIPAIS) */
 
 main .spaceHighlight {
     background-color: #1A1D1D;
@@ -40,9 +38,7 @@ main .spaceHighlight:hover {
     box-shadow: 0px 0px 20px rgba(209, 242, 0, 0.2), 0px 10px 30px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* ==========================================================================
-   SEÇÃO: SOBRE MATHIAS
-   ========================================================================== */
+/* SEÇÃO: SOBRE MATHIAS */
 
 #aboutMathias {
     max-width: 1400px;
@@ -91,9 +87,7 @@ main .spaceHighlight:hover {
     text-align: justify;
 }
 
-/* ==========================================================================
-   SEÇÃO: GAMES & MODAL
-   ========================================================================== */
+/* SEÇÃO: GAMES & MODAL */
 
 #aboutGames {
     max-width: 1400px;
@@ -228,9 +222,7 @@ main .spaceHighlight:hover {
     opacity: 0.9;
 }
 
-/* ==========================================================================
-   SEÇÃO: POKÉMON
-   ========================================================================== */
+/* SEÇÃO: POKÉMON */
 
 #aboutPokemon {
     max-width: 1400px;
@@ -346,9 +338,7 @@ main .spaceHighlight:hover {
     transform: scale(1.1) translateY(-5px);
 }
 
-/* ==========================================================================
-   SEÇÃO: CARROS
-   ========================================================================== */
+/* SEÇÃO: CARROS */
 
 #aboutCars {
     max-width: 1400px;

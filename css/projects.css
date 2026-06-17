@@ -7,7 +7,7 @@ body {
     background-color: #002420;
 }
 
-.projetos-principal {
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
