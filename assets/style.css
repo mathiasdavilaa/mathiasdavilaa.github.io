@@ -2,14 +2,14 @@
    Tokens
    ========================================================================== */
 :root {
-  --bg: #faf9f6;
-  --bg-raised: #f1efe9;
-  --text: #1b1a17;
-  --muted: #7a776e;
-  --border: #e6e2d8;
-  --invert-bg: #1b1a17;
-  --invert-text: #faf9f6;
-  --accent: #b5482a;
+  --bg: #f4f7ef;
+  --bg-raised: #e7ecdd;
+  --text: #0b0d0f;
+  --muted: #7c7862;
+  --border: #d8dcc9;
+  --invert-bg: #0b0d0f;
+  --invert-text: #f4f7ef;
+  --accent: #587e6d;
 
   --font-serif: "Fraunces", "Iowan Old Style", "Georgia", serif;
   --font-mono: "JetBrains Mono", "SFMono-Regular", "Menlo", monospace;
@@ -21,14 +21,14 @@
 }
 
 html[data-theme="dark"] {
-  --bg: #131210;
-  --bg-raised: #1b1a16;
-  --text: #f2efe8;
-  --muted: #8c897e;
-  --border: #2c2a24;
-  --invert-bg: #f2efe8;
-  --invert-text: #131210;
-  --accent: #e08862;
+  --bg: #05090d;
+  --bg-raised: #101519;
+  --text: #eff4ea;
+  --muted: #9a987f;
+  --border: #22282a;
+  --invert-bg: #eff4ea;
+  --invert-text: #05090d;
+  --accent: #7ba08f;
 }
 
 * { box-sizing: border-box; }
@@ -407,7 +407,7 @@ a:focus-visible, button:focus-visible {
   font-size: 2.2rem;
   font-weight: 500;
   margin-bottom: 30px;
-  color: #ffffff;
+  color: var(--text);
 }
 
 /* Estrutura do Formulário */
@@ -430,11 +430,11 @@ a:focus-visible, button:focus-visible {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  background-color: #1e1e1e;
-  border: 1px solid transparent;
+  background-color: var(--bg-raised);
+  border: 1px solid var(--border);
   border-radius: 4px;
   padding: 14px 16px;
-  color: #e0e0e0;
+  color: var(--text);
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.95rem;
   box-sizing: border-box;
@@ -444,14 +444,14 @@ a:focus-visible, button:focus-visible {
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: #777777;
+  color: var(--muted);
   font-family: 'JetBrains Mono', monospace;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #444444;
-  background-color: #252525;
+  border-color: var(--accent);
+  background-color: var(--bg-raised);
 }
 
 .contact-form textarea {
@@ -462,20 +462,19 @@ a:focus-visible, button:focus-visible {
 /* Botão Enviar */
 .btn-submit {
   width: 100%;
-  background-color: #1a1a1a;
-  color: #ffffff;
-  border: 1px solid #2a2a2a;
+  background-color: var(--invert-bg);
+  color: var(--invert-text);
+  border: 1px solid var(--invert-bg);
   border-radius: 4px;
   padding: 14px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .btn-submit:hover {
-  background-color: #262626;
-  border-color: #444444;
+  opacity: 0.85;
 }
 
 /* Responsividade para telas menores */
