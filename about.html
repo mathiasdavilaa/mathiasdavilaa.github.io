@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Mathias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">mathias <span class="dot">/</span> portfolio</a>
+      <nav class="main-nav">
+        <a href="index.html">home</a>
+        <span class="sep">|</span>
+        <a href="projects.html">posts</a>
+        <span class="sep">|</span>
+        <a href="about.html" aria-current="page">about</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle light/dark theme">
+        <span class="glyph"></span><span class="label">day</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero" style="padding-bottom:40px;">
+    <div class="wrap">
+      <p class="eyebrow"><span class="status"></span>who am i</p>
+      <h1 style="font-size:clamp(28px,5vw,38px);">About me</h1>
+      <p class="lede">Who is Mathias. My interests, passions and what make me unique.</p>
+    </div>
+  </section>
+
+  <section class="wrap about-body">
+    <p>My name is <strong>Mathias</strong> and I'm a <strong>Computer Science student</strong> working toward becoming a
+      <strong>software developer</strong>. I dream about becoming a developer since i was 10 years old, and now i can
+      make it happen.
+    </p>
+    <p>I am currently studying at Universidade de Passo Fundo and focusing on data structure, algorithms and database. I
+      work with languages like <strong>Python</strong>, <strong>C++</strong>, and also <strong>HTML</strong>,
+      <strong>CSS</strong>, <strong>JavaScript</strong>, and <strong>SQL</strong>. Im still learning and trying to
+      improve my skills every day.
+    </p>
+    <p>Outside of coding, I'm passionate about <strong>endurance motorsport (WEC)</strong> and challenging RPGs like
+      <strong>Elden Ring</strong>, where strategy, patience, and adaptability are key. Feel free to reach out.
+    </p>
+  </section>
+
+  <section class="wrap contact-section">
+    <h2 class="contact-title">Get in touch</h2>
+    <form class="contact-form" action="https://formsubmit.co/mathiasaug@proton.me" method="POST">
+      <!-- Configurações adicionais do FormSubmit -->
+      <input type="hidden" name="_subject" value="Nova mensagem do Portfolio!">
+      <input type="hidden" name="_captcha" value="false">
+
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+      </div>
+      <div class="form-row">
+        <textarea name="message" rows="5" placeholder="Message" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">send message</button>
+    </form>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> mathias</p>
+      <div class="about-links">
+        <a href="https://www.instagram.com/mathiasdavilaa/" target="_blank" rel="noopener">instagram</a>
+        <a href="https://github.com/mathiasdavilaa" target="_blank" rel="noopener">github</a>
+        <a href="https://linkedin.com/in/mathiasdavilaa" target="_blank" rel="noopener">linkedin</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="assets/theme.js"></script>
+</body>
+
+</html>

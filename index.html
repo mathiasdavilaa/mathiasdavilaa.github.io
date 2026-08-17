@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>portolio - mathias</title>
+<meta name="description" content="mathias` portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">mathias <span class="dot">/</span> portfolio</a>
+    <nav class="main-nav">
+      <a href="index.html" aria-current="page">home</a>
+      <span class="sep">|</span>
+      <a href="projects.html">projects</a>
+      <span class="sep">|</span>
+      <a href="about.html">about</a>
+    </nav>
+    <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle light/dark theme">
+      <span class="glyph"></span><span class="label">day</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow"><span class="status"></span>open to new projects</p>
+    <h1>Mathias<span class="cursor" aria-hidden="true"></span></h1>
+    <p class="lede">I'm a <strong>Computer Science student</strong> on my way to becoming a <strong>software developer</strong>, driven by a lifelong passion for technology. Here, I share my academic activities, coding projects, and insights gained along my learning journey.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="about.html">about me</a>
+      <a class="btn btn-ghost" href="projects.html">my projects</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2>latest projects</h2>
+    <a class="view-all" href="projects.html">view all →</a>
+  </div>
+  <ul class="post-list">
+    <li class="post-item empty">No projects published yet. Check back soon.</li>
+  </ul>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© <span id="year"></span> Mathias</p>
+    <div class="about-links">
+      <a href="https://www.instagram.com/mathiasdavilaa/" target="_blank" rel="noopener">instagram</a>
+      <a href="https://github.com/mathiasdavilaa" target="_blank" rel="noopener">github</a>
+      <a href="https://linkedin.com/in/mathiasdavilaa" target="_blank" rel="noopener">linkedin</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="assets/theme.js"></script>
+</body>
+</html>

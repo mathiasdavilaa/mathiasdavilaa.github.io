@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Post Title — Mathias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">mathias <span class="dot">/</span> portfolio <span class="dot">/</span> projects</a>
+    <nav class="main-nav">
+      <a href="../index.html">home</a>
+      <span class="sep">|</span>
+      <a href="../projects.html" aria-current="page">projects</a>
+      <span class="sep">|</span>
+      <a href="../about.html">about</a>
+    </nav>
+    <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle light/dark theme">
+      <span class="glyph"></span><span class="label">day</span>
+    </button>
+  </div>
+</header>
+
+<section class="wrap post-header">
+  <p class="post-meta">
+    <span>March 15, 2026</span>
+    <span>·</span>
+    <span>Personal</span>
+  </p>
+  <h1>Post TItle</h1>
+</section>
+
+<article class="wrap post-body">
+  <p>This is a sample paragraph. Replace all the content on this page with your own article. Keep paragraphs short and direct — the layout is already tuned for comfortable reading.</p>
+
+  <p>Use <code>&lt;h2&gt;</code> for subheadings within the text, and <code>&lt;blockquote&gt;</code> to highlight a quote, like the example below.</p>
+
+  <blockquote>A quote or highlighted excerpt looks like this, with a subtle left border.</blockquote>
+
+  <h2>A subheading</h2>
+  <p>Keep writing normally after a subheading. Once you're done, go back to <code>projects.html</code> and uncomment/edit the matching list item so this post shows up in the index.</p>
+</article>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© <span id="year"></span> Mathias</p>
+    <div class="about-links">
+      <a href="https://www.instagram.com/mathiasdavilaa/" target="_blank" rel="noopener">instagram</a>
+      <a href="https://github.com/mathiasdavilaa" target="_blank" rel="noopener">github</a>
+      <a href="https://linkedin.com/in/mathiasdavilaa" target="_blank" rel="noopener">linkedin</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="assets/theme.js"></script>
+</body>
+</html>

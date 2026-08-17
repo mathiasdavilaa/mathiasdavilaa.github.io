@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog — Mathias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">mathias <span class="dot">/</span> portfolio</a>
+    <nav class="main-nav">
+      <a href="index.html">home</a>
+      <span class="sep">|</span>
+      <a href="posts.html" aria-current="page">posts</a>
+      <span class="sep">|</span>
+      <a href="about.html">about</a>
+    </nav>
+    <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle light/dark theme">
+      <span class="glyph"></span><span class="label">day</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:40px;">
+  <div class="wrap">
+    <p class="eyebrow"><span class="status"></span>archive</p>
+    <h1 style="font-size:clamp(28px,5vw,38px);">Blog</h1>
+    <p class="lede">Notes, projects and things I'm learning. One post at a time.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head" style="margin-top:34px;">
+    <h2>all posts</h2>
+  </div>
+  <ul class="post-list">
+    <li class="post-item empty">
+      No posts published yet.<br>
+      To add one, duplicate <code>post-example.html</code>, edit the title, date and text — then add a new <code>&lt;li class="post-item"&gt;</code> here like the commented example in the source code.
+    </li>
+
+    <!--
+      Example post item (uncomment and edit when you publish your first article):
+
+      <li class="post-item">
+        <a class="post-link" href="post-example.html">
+          <p class="post-meta">
+            <span>March 15, 2026</span>
+            <span>·</span>
+            <span>Category</span>
+          </p>
+          <h3>Post title</h3>
+          <p class="excerpt">One or two sentences summarizing the post, giving context before the click.</p>
+        </a>
+      </li>
+    -->
+  </ul>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© <span id="year"></span> Mathias</p>
+    <div class="about-links">
+      <a href="https://www.instagram.com/mathiasdavilaa/" target="_blank" rel="noopener">instagram</a>
+      <a href="https://github.com/mathiasdavilaa" target="_blank" rel="noopener">github</a>
+      <a href="https://linkedin.com/in/mathiasdavilaa" target="_blank" rel="noopener">linkedin</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="assets/theme.js"></script>
+</body>
+</html>
