@@ -401,14 +401,12 @@ function renderGameVoting(data, players, playerIds, cat) {
     nameSpan.textContent = players[id].name + (id === myId ? " — você" : "");
     li.appendChild(nameSpan);
 
-    // A contagem de votos só aparece pro anfitrião, pra não influenciar quem ainda vai votar
-    if (isHost) {
-      const count = Object.values(votes).filter((v) => v === id).length;
-      const countSpan = document.createElement("span");
-      countSpan.className = "vote-count";
-      countSpan.textContent = count > 0 ? `${count} voto(s)` : "";
-      li.appendChild(countSpan);
-    }
+    // A contagem de votos aparece pra todo mundo, atualizando em tempo real
+    const count = Object.values(votes).filter((v) => v === id).length;
+    const countSpan = document.createElement("span");
+    countSpan.className = "vote-count";
+    countSpan.textContent = count > 0 ? `${count} voto(s)` : "0 votos";
+    li.appendChild(countSpan);
 
     if (!iAmEliminated && id !== myId) {
       li.addEventListener("click", () => {
