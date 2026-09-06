@@ -16,6 +16,27 @@ let roomCode = null;
 let roomRef = null;
 let isHost = false;
 let currentRoomData = null;
+let lastLoggedRoundKey = null;
+
+// ---------- Log de depuração (visível pra quem abrir o DevTools) ----------
+function logRoundDebugInfo(data, players, playerIds) {
+  const roundKey = data.word + "|" + Object.keys(players).length;
+  if (roundKey === lastLoggedRoundKey) return; // evita logar de novo a cada atualização
+  lastLoggedRoundKey = roundKey;
+
+  console.group("%c🕵️ Jogo do Impostor — estado da rodada (debug)", "color:#9d6bff;font-weight:bold;");
+  console.log("Categoria:", data.categorySnapshot);
+  console.log("Palavra secreta:", data.word);
+  console.table(
+    playerIds.map((id) => ({
+      nome: players[id].name,
+      impostor: !!players[id].isImpostor,
+      recebeu: players[id].secret,
+      eliminado: !!players[id].eliminated,
+    }))
+  );
+  console.groupEnd();
+}
 
 // ---------- Exibição de erros na tela ----------
 function showError(msg) {
@@ -207,6 +228,7 @@ function renderRoom(data) {
     renderLobby(data, players, playerIds, cat);
   } else if (data.status === "playing") {
     showScreen("game");
+    logRoundDebugInfo(data, players, playerIds);
     renderGamePlaying(data, players, playerIds, cat);
   } else if (data.status === "voting") {
     showScreen("game");
