@@ -9,11 +9,11 @@
 // ============================================================
 
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY_AQUI",
-  authDomain: "SEU_PROJETO.firebaseapp.com",
-  databaseURL: "https://SEU_PROJETO-default-rtdb.firebaseio.com",
-  projectId: "SEU_PROJETO",
-  storageBucket: "SEU_PROJETO.appspot.com",
-  messagingSenderId: "000000000000",
-  appId: "0:000000000000:web:xxxxxxxxxxxxxxxx"
+  apiKey: "AIzaSyDrMyIAysGOWbbf2D6UhqaixYjIUOkiLN8",
+  authDomain: "jogo-do-impostor-d4d6f.firebaseapp.com",
+  databaseURL: "https://jogo-do-impostor-d4d6f-default-rtdb.firebaseio.com",
+  projectId: "jogo-do-impostor-d4d6f",
+  storageBucket: "jogo-do-impostor-d4d6f.firebasestorage.app",
+  messagingSenderId: "119113596165",
+  appId: "1:119113596165:web:d760c673d83e75d3470b6c"
 };
