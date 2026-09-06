@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jogo do Impostor</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- TELA INICIAL -->
+  <section id="screen-home" class="screen active">
+    <div class="eye">🕵️</div>
+    <h1>Jogo do Impostor</h1>
+    <p class="subtitle">Todo mundo recebe uma palavra secreta. O impostor recebe só uma dica. Descubram quem é antes que seja tarde demais.</p>
+    <div class="btn-stack">
+      <button class="btn-primary" id="btn-go-create">Criar uma sala</button>
+      <button class="btn-secondary" id="btn-go-join">Entrar em uma sala</button>
+    </div>
+  </section>
+
+  <!-- CRIAR SALA -->
+  <section id="screen-create" class="screen">
+    <button class="btn-back">← voltar</button>
+    <h2>Criar sala</h2>
+    <p class="subtitle">Escolha a categoria e quantos impostores vão participar.</p>
+    <form id="form-create" class="card">
+      <label for="create-name">Seu nome</label>
+      <input type="text" id="create-name" maxlength="20" required placeholder="Como te chamam?" />
+
+      <label for="create-category">Categoria</label>
+      <select id="create-category"></select>
+
+      <label for="create-impostors">Quantos impostores?</label>
+      <input type="number" id="create-impostors" value="1" min="1" max="8" required />
+
+      <div class="btn-stack">
+        <button type="submit" class="btn-primary">Criar sala</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ENTRAR EM SALA -->
+  <section id="screen-join" class="screen">
+    <button class="btn-back">← voltar</button>
+    <h2>Entrar em uma sala</h2>
+    <p class="subtitle">Peça o código de 5 letras pra quem criou a sala.</p>
+    <form id="form-join" class="card">
+      <label for="join-name">Seu nome</label>
+      <input type="text" id="join-name" maxlength="20" required placeholder="Como te chamam?" />
+
+      <label for="join-code">Código da sala</label>
+      <input type="text" id="join-code" maxlength="5" required placeholder="EX: A7K2Q" style="text-transform:uppercase; letter-spacing:0.15em;" />
+
+      <div class="error-text" id="join-error"></div>
+
+      <div class="btn-stack">
+        <button type="submit" class="btn-primary">Entrar</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- LOBBY -->
+  <section id="screen-lobby" class="screen">
+    <h2>Sala de espera</h2>
+    <div class="room-code-box">
+      <span class="code" id="lobby-code">-----</span>
+      <button id="btn-copy-code">Copiar código</button>
+    </div>
+
+    <div class="card">
+      <div class="meta-row">
+        <span id="lobby-category-label">-</span>
+        <span id="lobby-impostor-count">-</span> impostor(es)
+      </div>
+
+      <h3 id="lobby-count-label">jogadores</h3>
+      <ul class="player-list" id="lobby-players"></ul>
+
+      <div id="lobby-host-controls" style="display:none;">
+        <hr class="sep" />
+        <label for="lobby-category-select">Categoria</label>
+        <select id="lobby-category-select"></select>
+
+        <label for="lobby-impostor-input">Número de impostores</label>
+        <input type="number" id="lobby-impostor-input" min="1" />
+
+        <div class="btn-stack" style="margin-top:20px;">
+          <button id="btn-start-game" class="btn-primary">Iniciar jogo</button>
+        </div>
+        <div class="hint-text" id="lobby-start-hint"></div>
+      </div>
+
+      <p class="wait-msg" id="lobby-wait-msg">Esperando o anfitrião iniciar o jogo...</p>
+    </div>
+
+    <div class="btn-stack" style="margin-top:16px;">
+      <button class="btn-danger" id="btn-leave-lobby">Sair da sala</button>
+    </div>
+  </section>
+
+  <!-- JOGO -->
+  <section id="screen-game" class="screen">
+
+    <div id="game-playing-box">
+      <h2 id="game-category-label">Categoria</h2>
+      <p class="subtitle">Toque no botão pra ver sua carta em segredo. Não deixe ninguém ver a tela!</p>
+
+      <button id="btn-reveal-card">Toque pra revelar sua carta 👁️</button>
+
+      <div class="secret-card" id="my-secret-card" style="display:none;"></div>
+
+      <div id="game-host-controls" style="display:none;">
+        <p class="hint-text" id="game-ready-count" style="text-align:center;"></p>
+        <div class="btn-stack">
+          <button id="btn-end-round" class="btn-primary">Encerrar rodada e revelar</button>
+        </div>
+      </div>
+
+      <div class="btn-stack" style="margin-top:20px;">
+        <button class="btn-danger" id="btn-leave-game">Sair da sala</button>
+      </div>
+    </div>
+
+    <div id="game-reveal-box" style="display:none;">
+      <h2>Revelação</h2>
+      <div class="reveal-word-box">
+        <span class="hint-text" id="reveal-category"></span>
+        <div class="word" id="reveal-word"></div>
+      </div>
+
+      <div class="card">
+        <h3>Impostor(es)</h3>
+        <ul class="player-list" id="reveal-impostor-list"></ul>
+      </div>
+
+      <div id="reveal-host-controls" style="display:none; margin-top:16px;">
+        <div class="btn-stack">
+          <button id="btn-new-round" class="btn-primary">Jogar outra rodada</button>
+        </div>
+      </div>
+
+      <div class="btn-stack" style="margin-top:16px;">
+        <button class="btn-danger" id="btn-leave-game-reveal" onclick="document.getElementById('btn-leave-game').click()">Sair da sala</button>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="credit">feito pra jogar com a galera • hospedado no GitHub Pages</footer>
+</div>
+
+<!-- Firebase (compat, sem build step) -->
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-database-compat.js"></script>
+
+<script src="firebase-config.js"></script>
+<script src="categories.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
