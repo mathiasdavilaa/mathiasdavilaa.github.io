@@ -185,6 +185,24 @@ ul.player-list li {
   font-size: 0.92rem;
 }
 
+li.vote-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color .15s ease, background .15s ease;
+}
+li.vote-option:hover { background: #232838; }
+li.vote-option.selected { border-color: var(--impostor); background: var(--impostor-dim); }
+li.vote-option.eliminated { opacity: 0.4; cursor: not-allowed; text-decoration: line-through; }
+li.vote-option .vote-count {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
 .hint-text {
   color: var(--text-muted);
   font-size: 0.82rem;
@@ -247,6 +265,8 @@ hr.sep {
   font-weight: 700;
   margin-top: 4px;
 }
+.reveal-word-box .word.verdict-hit { color: var(--crew); }
+.reveal-word-box .word.verdict-miss { color: var(--impostor); }
 
 footer.credit {
   text-align: center;

@@ -208,6 +208,12 @@ function renderRoom(data) {
   } else if (data.status === "playing") {
     showScreen("game");
     renderGamePlaying(data, players, playerIds, cat);
+  } else if (data.status === "voting") {
+    showScreen("game");
+    renderGameVoting(data, players, playerIds, cat);
+  } else if (data.status === "vote_result") {
+    showScreen("game");
+    renderGameVoteResult(data, players, playerIds, cat);
   } else if (data.status === "reveal") {
     showScreen("game");
     renderGameReveal(data, players, playerIds, cat);
@@ -298,10 +304,13 @@ document.getElementById("btn-start-game").addEventListener("click", async () => 
     updates[`players/${id}/isImpostor`] = isImpostor;
     updates[`players/${id}/secret`] = isImpostor ? hint : word;
     updates[`players/${id}/revealed`] = false;
+    updates[`players/${id}/eliminated`] = false;
   });
   updates["status"] = "playing";
   updates["word"] = word;
   updates["categorySnapshot"] = `${cat.icon} ${cat.label}`;
+  updates["votes"] = null;
+  updates["lastVoteResult"] = null;
 
   await roomRef.update(updates);
 });
@@ -312,6 +321,8 @@ document.getElementById("btn-leave-lobby").addEventListener("click", leaveRoom);
 // TELA DE JOGO (cada um vê sua própria carta)
 // ============================================================
 function renderGamePlaying(data, players, playerIds, cat) {
+  document.getElementById("game-voting-box").style.display = "none";
+  document.getElementById("game-vote-result-box").style.display = "none";
   document.getElementById("game-reveal-box").style.display = "none";
   const playing = document.getElementById("game-playing-box");
   playing.style.display = "block";
@@ -356,26 +367,180 @@ document.getElementById("btn-end-round").addEventListener("click", async () => {
   await roomRef.child("status").set("reveal");
 });
 
+document.getElementById("btn-start-voting").addEventListener("click", async () => {
+  if (!isHost || !roomRef) return;
+  await roomRef.update({ status: "voting", votes: null, lastVoteResult: null });
+});
+
+// ============================================================
+// TELA DE VOTAÇÃO
+// ============================================================
+function renderGameVoting(data, players, playerIds, cat) {
+  document.getElementById("game-playing-box").style.display = "none";
+  document.getElementById("game-vote-result-box").style.display = "none";
+  document.getElementById("game-reveal-box").style.display = "none";
+  document.getElementById("game-voting-box").style.display = "block";
+
+  const votes = data.votes || {};
+  const activeIds = playerIds.filter((id) => !players[id].eliminated);
+  const me = players[myId];
+  const iAmEliminated = me && me.eliminated;
+
+  document.getElementById("you-eliminated-msg").style.display = iAmEliminated ? "block" : "none";
+
+  const myVote = votes[myId];
+  const list = document.getElementById("voting-player-list");
+  list.innerHTML = "";
+
+  activeIds.forEach((id) => {
+    const li = document.createElement("li");
+    li.className = "vote-option";
+    if (id === myVote) li.classList.add("selected");
+
+    const nameSpan = document.createElement("span");
+    nameSpan.textContent = players[id].name + (id === myId ? " — você" : "");
+    li.appendChild(nameSpan);
+
+    // A contagem de votos só aparece pro anfitrião, pra não influenciar quem ainda vai votar
+    if (isHost) {
+      const count = Object.values(votes).filter((v) => v === id).length;
+      const countSpan = document.createElement("span");
+      countSpan.className = "vote-count";
+      countSpan.textContent = count > 0 ? `${count} voto(s)` : "";
+      li.appendChild(countSpan);
+    }
+
+    if (!iAmEliminated && id !== myId) {
+      li.addEventListener("click", () => {
+        roomRef.child("votes/" + myId).set(id);
+      });
+    } else if (id === myId) {
+      li.classList.add("eliminated");
+    }
+
+    list.appendChild(li);
+  });
+
+  const votersWhoVoted = Object.keys(votes).filter((id) => activeIds.includes(id)).length;
+  document.getElementById("voting-progress").textContent = `${votersWhoVoted}/${activeIds.length} já votaram`;
+
+  document.getElementById("voting-host-controls").style.display = isHost ? "block" : "none";
+}
+
+document.getElementById("btn-tally-votes").addEventListener("click", async () => {
+  if (!isHost || !roomRef || !currentRoomData) return;
+  const players = currentRoomData.players || {};
+  const votes = currentRoomData.votes || {};
+  const activeIds = Object.keys(players).filter((id) => !players[id].eliminated);
+
+  const tally = {};
+  activeIds.forEach((id) => {
+    const v = votes[id];
+    if (v && activeIds.includes(v)) tally[v] = (tally[v] || 0) + 1;
+  });
+
+  const entries = Object.entries(tally);
+  if (entries.length === 0) return; // ninguém votou ainda
+
+  const maxVotes = Math.max(...entries.map(([, c]) => c));
+  const topVoted = entries.filter(([, c]) => c === maxVotes).map(([id]) => id);
+
+  if (topVoted.length > 1) {
+    // empate — ninguém é eliminado
+    await roomRef.update({
+      status: "vote_result",
+      lastVoteResult: { tie: true },
+      votes: null,
+    });
+    return;
+  }
+
+  const eliminatedId = topVoted[0];
+  const wasImpostor = !!players[eliminatedId].isImpostor;
+
+  await roomRef.update({
+    [`players/${eliminatedId}/eliminated`]: true,
+    status: "vote_result",
+    lastVoteResult: {
+      eliminatedId,
+      eliminatedName: players[eliminatedId].name,
+      wasImpostor,
+    },
+    votes: null,
+  });
+});
+
+// ============================================================
+// TELA DE RESULTADO DA VOTAÇÃO
+// ============================================================
+function renderGameVoteResult(data, players, playerIds, cat) {
+  document.getElementById("game-playing-box").style.display = "none";
+  document.getElementById("game-voting-box").style.display = "none";
+  document.getElementById("game-reveal-box").style.display = "none";
+  document.getElementById("game-vote-result-box").style.display = "block";
+
+  const result = data.lastVoteResult || {};
+  const nameEl = document.getElementById("vote-result-name");
+  const verdictEl = document.getElementById("vote-result-verdict");
+
+  if (result.tie) {
+    nameEl.textContent = "Deu empate";
+    verdictEl.textContent = "Ninguém foi eliminado nesta votação.";
+    verdictEl.className = "word";
+  } else {
+    nameEl.textContent = `${result.eliminatedName} foi eliminado(a)`;
+    if (result.wasImpostor) {
+      verdictEl.textContent = "Era o impostor! 🎉";
+      verdictEl.className = "word verdict-hit";
+    } else {
+      verdictEl.textContent = "Não era o impostor...";
+      verdictEl.className = "word verdict-miss";
+    }
+  }
+
+  const remainingImpostors = playerIds.filter((id) => players[id].isImpostor && !players[id].eliminated).length;
+
+  const hostControls = document.getElementById("vote-result-host-controls");
+  hostControls.style.display = isHost ? "block" : "none";
+
+  const continueBtn = document.getElementById("btn-continue-voting");
+  if (remainingImpostors === 0 && !result.tie) {
+    continueBtn.style.display = "none";
+  } else {
+    continueBtn.style.display = "block";
+  }
+}
+
+document.getElementById("btn-continue-voting").addEventListener("click", async () => {
+  if (!isHost || !roomRef) return;
+  await roomRef.update({ status: "voting", votes: null, lastVoteResult: null });
+});
+
+document.getElementById("btn-finish-from-vote").addEventListener("click", async () => {
+  if (!isHost || !roomRef) return;
+  await roomRef.child("status").set("reveal");
+});
+
 // ============================================================
 // TELA DE REVELAÇÃO (fim da rodada)
 // ============================================================
 function renderGameReveal(data, players, playerIds, cat) {
   document.getElementById("game-playing-box").style.display = "none";
+  document.getElementById("game-voting-box").style.display = "none";
+  document.getElementById("game-vote-result-box").style.display = "none";
   const box = document.getElementById("game-reveal-box");
   box.style.display = "block";
 
   document.getElementById("reveal-word").textContent = data.word;
   document.getElementById("reveal-category").textContent = data.categorySnapshot || `${cat.icon} ${cat.label}`;
 
-  const impostorNames = playerIds
-    .filter((id) => players[id].isImpostor)
-    .map((id) => players[id].name);
+  const impostorIds = playerIds.filter((id) => players[id].isImpostor);
 
   const list = document.getElementById("reveal-impostor-list");
   list.innerHTML = "";
-  impostorNames.forEach((name) => {
+  impostorIds.forEach((id) => {
     const li = document.createElement("li");
-    li.textContent = name;
+    li.textContent = players[id].name + (players[id].eliminated ? " (eliminado na votação)" : " (não foi descoberto)");
     list.appendChild(li);
   });
 
@@ -389,11 +554,14 @@ document.getElementById("btn-new-round").addEventListener("click", async () => {
     status: "lobby",
     word: null,
     categorySnapshot: null,
+    votes: null,
+    lastVoteResult: null,
   };
   playerIds.forEach((id) => {
     updates[`players/${id}/isImpostor`] = null;
     updates[`players/${id}/secret`] = null;
     updates[`players/${id}/revealed`] = null;
+    updates[`players/${id}/eliminated`] = null;
   });
   await roomRef.update(updates);
 });

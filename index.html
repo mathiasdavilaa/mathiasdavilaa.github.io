@@ -115,12 +115,53 @@
       <div id="game-host-controls" style="display:none;">
         <p class="hint-text" id="game-ready-count" style="text-align:center;"></p>
         <div class="btn-stack">
-          <button id="btn-end-round" class="btn-primary">Encerrar rodada e revelar</button>
+          <button id="btn-start-voting" class="btn-primary">Iniciar votação</button>
+          <button id="btn-end-round" class="btn-secondary">Pular votação e revelar tudo</button>
         </div>
       </div>
 
       <div class="btn-stack" style="margin-top:20px;">
         <button class="btn-danger" id="btn-leave-game">Sair da sala</button>
+      </div>
+    </div>
+
+    <div id="game-voting-box" style="display:none;">
+      <h2>Votação</h2>
+      <p class="subtitle">Quem vocês acham que é o impostor? Toque num nome pra votar.</p>
+
+      <div id="you-eliminated-msg" class="wait-msg" style="display:none;">Você foi eliminado nesta rodada. Espere o fim da votação.</div>
+
+      <ul class="player-list" id="voting-player-list"></ul>
+
+      <p class="hint-text" id="voting-progress" style="text-align:center;"></p>
+
+      <div id="voting-host-controls" style="display:none; margin-top:12px;">
+        <div class="btn-stack">
+          <button id="btn-tally-votes" class="btn-primary">Apurar votos</button>
+        </div>
+      </div>
+
+      <div class="btn-stack" style="margin-top:20px;">
+        <button class="btn-danger" id="btn-leave-game-voting" onclick="document.getElementById('btn-leave-game').click()">Sair da sala</button>
+      </div>
+    </div>
+
+    <div id="game-vote-result-box" style="display:none;">
+      <h2>Resultado da votação</h2>
+      <div class="reveal-word-box">
+        <span class="hint-text" id="vote-result-name"></span>
+        <div class="word" id="vote-result-verdict"></div>
+      </div>
+
+      <div id="vote-result-host-controls" style="display:none;">
+        <div class="btn-stack">
+          <button id="btn-continue-voting" class="btn-primary">Nova votação</button>
+          <button id="btn-finish-from-vote" class="btn-secondary">Revelar tudo e encerrar</button>
+        </div>
+      </div>
+
+      <div class="btn-stack" style="margin-top:20px;">
+        <button class="btn-danger" id="btn-leave-game-vote-result" onclick="document.getElementById('btn-leave-game').click()">Sair da sala</button>
       </div>
     </div>
 
