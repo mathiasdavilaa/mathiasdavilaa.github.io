@@ -17,6 +17,28 @@ let roomRef = null;
 let isHost = false;
 let currentRoomData = null;
 
+// ---------- Exibição de erros na tela ----------
+function showError(msg) {
+  console.error(msg);
+  let box = document.getElementById("global-error-box");
+  if (!box) {
+    box = document.createElement("div");
+    box.id = "global-error-box";
+    box.style.cssText = "position:fixed;bottom:16px;left:16px;right:16px;max-width:448px;margin:0 auto;background:#3a1f24;border:1px solid #ff6b6b;color:#ffdada;padding:12px 16px;border-radius:10px;font-size:0.85rem;z-index:9999;font-family:Inter,sans-serif;";
+    document.body.appendChild(box);
+  }
+  box.textContent = "Erro: " + msg;
+  box.style.display = "block";
+}
+
+window.addEventListener("unhandledrejection", (event) => {
+  showError((event.reason && event.reason.message) || String(event.reason));
+});
+window.addEventListener("error", (event) => {
+  showError(event.message);
+});
+
+
 // ---------- Utilidades de tela ----------
 const screens = {
   home: document.getElementById("screen-home"),
@@ -99,8 +121,12 @@ document.getElementById("form-create").addEventListener("submit", async (e) => {
     },
   };
 
-  await ref.set(initialData);
-  enterRoom(code, true);
+  try {
+    await ref.set(initialData);
+    enterRoom(code, true);
+  } catch (err) {
+    showError(err.message || String(err));
+  }
 });
 
 // ============================================================
@@ -115,26 +141,30 @@ document.getElementById("form-join").addEventListener("submit", async (e) => {
 
   if (!name || !code) return;
 
-  const ref = db.ref("rooms/" + code);
-  const snap = await ref.once("value");
+  try {
+    const ref = db.ref("rooms/" + code);
+    const snap = await ref.once("value");
 
-  if (!snap.exists()) {
-    errEl.textContent = "Sala não encontrada. Confira o código com quem criou a sala.";
-    return;
+    if (!snap.exists()) {
+      errEl.textContent = "Sala não encontrada. Confira o código com quem criou a sala.";
+      return;
+    }
+
+    const data = snap.val();
+    if (data.status && data.status !== "lobby") {
+      errEl.textContent = "Essa sala já está com uma rodada em andamento. Espere terminar ou peça um código novo.";
+      return;
+    }
+
+    await ref.child("players/" + myId).set({
+      name,
+      joinedAt: firebase.database.ServerValue.TIMESTAMP,
+    });
+
+    enterRoom(code, data.host === myId);
+  } catch (err) {
+    showError(err.message || String(err));
   }
-
-  const data = snap.val();
-  if (data.status && data.status !== "lobby") {
-    errEl.textContent = "Essa sala já está com uma rodada em andamento. Espere terminar ou peça um código novo.";
-    return;
-  }
-
-  await ref.child("players/" + myId).set({
-    name,
-    joinedAt: firebase.database.ServerValue.TIMESTAMP,
-  });
-
-  enterRoom(code, data.host === myId);
 });
 
 // ============================================================
